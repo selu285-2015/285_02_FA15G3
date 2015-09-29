@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<FuNDs.Models.FundRaisers>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "All FundaRaisers";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
@@ -20,12 +20,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConfirmPassword)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -40,16 +35,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConfirmPassword)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FundRaisersId }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.FundRaisersId }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.FundRaisersId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FundRaisersId })
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.FundRaisersId })*@
         </td>
     </tr>
 }

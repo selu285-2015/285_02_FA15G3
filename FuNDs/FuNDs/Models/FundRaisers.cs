@@ -26,9 +26,10 @@ namespace FuNDs.Models
         [EmailAddress]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [DataType(DataType.Password)]
         [Required]
         [Display(Name = "Password")]
-        
         public string Password { get; set; }
 
         [DataType(DataType.Password)]

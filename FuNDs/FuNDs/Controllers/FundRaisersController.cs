@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FuNDs.Models;
+using System.Web.Helpers;
 
 namespace FuNDs.Controllers
 {
@@ -27,12 +28,12 @@ namespace FuNDs.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FundRaisers fundRaiser = db.FundRaisers.Find(id);
-            if (fundRaiser == null)
+            FundRaisers fundRaisers = db.FundRaisers.Find(id);
+            if (fundRaisers == null)
             {
                 return HttpNotFound();
             }
-            return View(fundRaiser);
+            return View(fundRaisers);
         }
 
         // GET: FundRaisers/Create
@@ -46,15 +47,20 @@ namespace FuNDs.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FundRaiserId,FirstName,LastName,Email,Password,ConfirmPassword")] FundRaisers FundRaisers)
+        public ActionResult Create([Bind(Include = "FundRaisersId,FirstName,LastName,Email,Password,ConfirmPassword")] FundRaisers FundRaisers)
         {
             if (ModelState.IsValid)
             {
+                var salt = Crypto.GenerateSalt();
+                var saltedPassword = FundRaisers.Password + salt;
+                var hashedPassword = Crypto.HashPassword(saltedPassword);
+                FundRaisers.Password = hashedPassword;
+                FundRaisers.ConfirmPassword = hashedPassword;
+
                 db.FundRaisers.Add(FundRaisers);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); 
             }
-
             return View(FundRaisers);
         }
 
@@ -69,10 +75,11 @@ namespace FuNDs.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FundRaiserId,FirstName,LastName,Email,Password,ConfirmPassword")] FundRaisers FundRaisers)
+        public ActionResult SignIn([Bind(Include = "FundRaisersId,FirstName,LastName,Email,Password,ConfirmPassword")] FundRaisers FundRaisers)
         {
             if (ModelState.IsValid)
             {
+               // If()
                 db.FundRaisers.Add(FundRaisers);
                 db.SaveChanges();
                 return RedirectToAction("Index");
