@@ -13,12 +13,13 @@ namespace FuNDs.Models
         public int FundRaisersId { get; set; }
 
         [Required]
-        [Display(Name = "FirstName")]
+        //[StringLength(100, ErrorMessage = "Oops! First Name must have at least 2 characters.", MinimumLength = 2)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         [Required]
-        [Display(Name = "LastName")]
-       
+        //[StringLength(100, ErrorMessage = "Oops! Last Name must have at least 2 characters.", MinimumLength = 2)]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]

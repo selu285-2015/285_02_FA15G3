@@ -5,14 +5,14 @@ namespace FuNDs.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FuNDs.Models.FundRaisersDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<FuNDs.Models.FundRaisers.FundRaisersDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(FuNDs.Models.FundRaisersDbContext context)
+        protected override void Seed(FuNDs.Models.FundRaisers.FundRaisersDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
