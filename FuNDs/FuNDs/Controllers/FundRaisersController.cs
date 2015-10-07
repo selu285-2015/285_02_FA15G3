@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using FuNDs.Models;
 using System.Web.Helpers;
+using System.IO;
+using System.Web.Script.Serialization;
+using System.Web.UI;
 
 namespace FuNDs.Controllers
 {
@@ -49,21 +52,22 @@ namespace FuNDs.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "FundRaisersId,FirstName,LastName,Email,Password,ConfirmPassword")] FundRaisers FundRaisers)
         {
+
             if (ModelState.IsValid)
             {
-                var salt = Crypto.GenerateSalt();
-                var saltedPassword = FundRaisers.Password + salt;
-                var hashedPassword = Crypto.HashPassword(saltedPassword);
+                //var salt = Crypto.GenerateSalt();
+                //var saltedPassword = FundRaisers.Password + salt;
+                var hashedPassword = Crypto.HashPassword(FundRaisers.Password);
                 FundRaisers.Password = hashedPassword;
                 FundRaisers.ConfirmPassword = hashedPassword;
 
                 db.FundRaisers.Add(FundRaisers);
                 db.SaveChanges();
-                return RedirectToAction("Index"); 
+                return RedirectToAction("Index", "Home");
             }
             return View(FundRaisers);
         }
-
+    
         // Sign In 
         public ActionResult SignIn()
         {
@@ -75,17 +79,37 @@ namespace FuNDs.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn([Bind(Include = "FundRaisersId,FirstName,LastName,Email,Password,ConfirmPassword")] FundRaisers FundRaisers)
+        public ActionResult SignIn([Bind(Include = "Email,Password")] FundRaisers fundRaisers)
         {
-            if (ModelState.IsValid)
+            try
             {
-               // If()
-                db.FundRaisers.Add(FundRaisers);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                var dbPassword = db.FundRaisers.Where(fundOb => fundOb.Email == fundRaisers.Email).FirstOrDefault().Password;
+                bool a = Crypto.VerifyHashedPassword(dbPassword, fundRaisers.Password);
+                if (a == true)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
 
-            return View(FundRaisers);
+                    @ViewBag.Message = "Error.Ivalid login.";
+                    return RedirectToAction("SignInFailure", "FundRaisers");
+                }
+            }
+            catch (Exception e)
+            {
+                //@ViewBag.Message = "Error.Ivalid login.";
+                return RedirectToAction("SignInFailure", "FundRaisers");
+
+        }  
+    
+            
+            
+        }
+        //Get
+        public ActionResult SignInFailure()
+        {
+            return View();
         }
 
 

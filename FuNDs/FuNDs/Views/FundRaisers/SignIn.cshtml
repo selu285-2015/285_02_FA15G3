@@ -1,14 +1,14 @@
 ﻿@model FuNDs.Models.FundRaisers
 
 @{
-    ViewBag.Title = "SignIn";
+    ViewBag.Title = "Sign In";
 }
 
 <h2>@ViewBag.Title.</h2>
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
-            @using (Html.BeginForm("SignIn", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            @using (Html.BeginForm("SignIn", "FundRaisers", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
    //             <h4>Use a local account to log in.</h4>

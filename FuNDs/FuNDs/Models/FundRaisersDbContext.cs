@@ -12,5 +12,6 @@ namespace FuNDs.Models
 
         {
         }
+        public DbSet<FundRaisers> FundRaisers { get; set; }
     }
 }

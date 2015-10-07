@@ -39,10 +39,7 @@ namespace FuNDs.Models
         public string ConfirmPassword { get; set; }
 
 
-        public class FundRaisersDbContext : DbContext
-        {
-            public DbSet<FundRaisers> Movies { get; set; }
-        }
+       
 
     }
 }
