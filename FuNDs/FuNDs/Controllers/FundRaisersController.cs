@@ -99,6 +99,7 @@ namespace FuNDs.Controllers
             catch (Exception e)
             {
                 //@ViewBag.Message = "Error.Ivalid login.";
+
                 return RedirectToAction("SignInFailure", "FundRaisers");
 
         }  
