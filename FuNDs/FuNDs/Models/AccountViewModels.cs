@@ -109,4 +109,17 @@ namespace FuNDs.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+
+    public class AccountLoginViewModel
+    {
+        //show errors whenever something is enterd wrong
+        [Required(ErrorMessage = "Please input a Username")]
+        public string Email1 { get; set; }
+        [Required(ErrorMessage = "Please input a Password")]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+    //    [Display(Name = "Remember me?")]
+      //  public bool RememberMe { get; set; }
+    }
 }

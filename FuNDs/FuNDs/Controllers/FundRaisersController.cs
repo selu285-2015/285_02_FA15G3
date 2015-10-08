@@ -11,6 +11,7 @@ using System.Web.Helpers;
 using System.IO;
 using System.Web.Script.Serialization;
 using System.Web.UI;
+using System.Web.Security;
 
 namespace FuNDs.Controllers
 {
@@ -55,6 +56,8 @@ namespace FuNDs.Controllers
 
             if (ModelState.IsValid)
             {
+
+                //  CheckEmailAddressAlreadyExists(FundRaisers.Email);
                 //var salt = Crypto.GenerateSalt();
                 //var saltedPassword = FundRaisers.Password + salt;
                 var hashedPassword = Crypto.HashPassword(FundRaisers.Password);
@@ -67,8 +70,8 @@ namespace FuNDs.Controllers
             }
             return View(FundRaisers);
         }
-    
-        // Sign In 
+
+        [HttpGet]
         public ActionResult SignIn()
         {
             return View();
@@ -77,14 +80,20 @@ namespace FuNDs.Controllers
         // POST: FundRaisers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /*
+        made slight changes here. This time using AccountLogInViewModel so that email of sign uping and siging do not concide.
+        remember we are using the email just one time.
+    */
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn([Bind(Include = "Email,Password")] FundRaisers fundRaisers)
+        public ActionResult SignIn([Bind(Include = "Email1,Password")] AccountLoginViewModel userTryingToLogin)
         {
             try
             {
-                var dbPassword = db.FundRaisers.Where(fundOb => fundOb.Email == fundRaisers.Email).FirstOrDefault().Password;
-                bool a = Crypto.VerifyHashedPassword(dbPassword, fundRaisers.Password);
+                FundRaisers doesUserExist = db.FundRaisers.FirstOrDefault(s => s.Email.Equals(userTryingToLogin.Email1));
+
+                // var dbPassword = db.FundRaisers.Where(fundOb => fundOb.Email == fundRaisers.Email1).FirstOrDefault().Password;
+                bool a = Crypto.VerifyHashedPassword(doesUserExist.Password, userTryingToLogin.Password);
                 if (a == true)
                 {
                     return RedirectToAction("Index", "Home");
@@ -101,18 +110,42 @@ namespace FuNDs.Controllers
                 //@ViewBag.Message = "Error.Ivalid login.";
                 return RedirectToAction("SignInFailure", "FundRaisers");
 
-        }  
-    
-            
-            
-        }
+            }
+        }      
+
+
         //Get
+
+
         public ActionResult SignInFailure()
         {
             return View();
         }
 
 
+        public ActionResult doesEmailExist()
+        {
+            return View();
+        }
+
+        //   Check if the email already 
+        // login with unique email address
+        [HttpPost]
+        public virtual JsonResult doesEmailExist(string Email)
+        {
+            bool CheckEmail = false;
+            //Check in database that particular email address exist or not
+            CheckEmail = db.FundRaisers.Any(s => s.Email == Email);
+            if (CheckEmail)    // if already exists
+            {
+                return Json("Email Address Already Regesiterd! Try using another one ", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {   // if not
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+
+        }
         // GET: FundRaisers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -180,3 +213,4 @@ namespace FuNDs.Controllers
         }
     }
 }
+
