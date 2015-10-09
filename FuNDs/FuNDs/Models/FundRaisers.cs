@@ -32,7 +32,7 @@ namespace FuNDs.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-       
+
 
         [DataType(DataType.Password)]
         [Required]
@@ -44,7 +44,11 @@ namespace FuNDs.Models
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
     }
+}
     // this is the code I am copying for practice from account model 
 
 
@@ -110,4 +114,4 @@ namespace FuNDs.Models
     // this is end of the code I am copying for practice from account model
 
 
-}
+

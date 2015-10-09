@@ -96,6 +96,9 @@ namespace FuNDs.Controllers
                 bool a = Crypto.VerifyHashedPassword(doesUserExist.Password, userTryingToLogin.Password);
                 if (a == true)
                 {
+
+                    // creating authetication ticket
+                    FormsAuthentication.SetAuthCookie(userTryingToLogin.Email1, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -112,10 +115,6 @@ namespace FuNDs.Controllers
 
             }
         }      
-
-
-        //Get
-
 
         public ActionResult SignInFailure()
         {
@@ -210,6 +209,16 @@ namespace FuNDs.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        public ActionResult Logout()
+        {
+            // This is the predefined SignOut method in FormAuthentication :p
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

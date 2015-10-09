@@ -1,21 +1,24 @@
 ﻿@using Microsoft.AspNet.Identity
+
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+  
     {
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+       
+        @*comment :// this will Signin and have your username on the top left of the signin page :p*@
+        <li>@Html.ActionLink( HttpContext.Current.User.Identity.GetUserName() + "index" ,"Home" )</li>
+          <li> @Html.ActionLink("Sign Out", "Logout", "FundRaisers") </li>
     </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-       
+        <li>@Html.ActionLink("Sign Up", "Create", "FundRaisers")</li>
+        <li>@Html.ActionLink("Log In", "SignIn", "FundRaisers")</li>
+
     </ul>
 }
