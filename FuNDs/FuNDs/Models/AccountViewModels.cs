@@ -121,5 +121,7 @@ namespace FuNDs.Models
         public string Password { get; set; }
          [Display(Name = "Remember me?")]
          public bool RememberMe { get; set; }
+        public bool verified { get; set; }
+        public string verificationToken { get; set; }
     }
 }

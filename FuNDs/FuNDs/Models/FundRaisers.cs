@@ -11,7 +11,7 @@ namespace FuNDs.Models
 {
     public class FundRaisers
     {
-        // [Key]
+         [Key]
         public int FundRaisersId { get; set; }
 
         [Required]
@@ -47,6 +47,9 @@ namespace FuNDs.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        public bool verified { get; set; }
+        public string verificationToken { get; set; }
     }
 }
     // this is the code I am copying for practice from account model 

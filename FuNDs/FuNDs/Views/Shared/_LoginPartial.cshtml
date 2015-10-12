@@ -9,7 +9,7 @@
     <ul class="nav navbar-nav navbar-right">
        
         @*comment :// this will Signin and have your username on the top left of the signin page :p*@
-        <li>@Html.ActionLink( HttpContext.Current.User.Identity.GetUserName() + "index" ,"Home" )</li>
+        <li>@Html.ActionLink( HttpContext.Current.User.Identity.GetUserName() ,"Home" )</li>
           <li> @Html.ActionLink("Sign Out", "Logout", "FundRaisers") </li>
     </ul>
     }
