@@ -106,12 +106,12 @@ namespace FuNDs.Controllers
     */
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn([Bind(Include = "Email1,Password")] AccountLoginViewModel userTryingToLogin)
+        public ActionResult SignIn([Bind(Include = "Email,Password")] AccountLoginViewModel userTryingToLogin)
         {
             if (userTryingToLogin != null & ModelState.IsValid)
             {
 
-                FundRaisers doesUserExist = db.FundRaisers.FirstOrDefault(s => s.Email.Equals(userTryingToLogin.Email1));
+                FundRaisers doesUserExist = db.FundRaisers.FirstOrDefault(s => s.Email.Equals(userTryingToLogin.Email));
 
                 if (!doesUserExist.verified )
                 {
@@ -125,7 +125,7 @@ namespace FuNDs.Controllers
                 {
 
                     // creating authetication ticket
-                    FormsAuthentication.SetAuthCookie(userTryingToLogin.Email1, false);
+                    FormsAuthentication.SetAuthCookie(userTryingToLogin.Email, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -209,8 +209,8 @@ namespace FuNDs.Controllers
                 MailMessage mail = new MailMessage();
                 mail.To.Add(email);
                 mail.From = new MailAddress("Convergent.origin@gmail.com");
-                mail.Subject = "Hello";
-                mail.Body = "How are you ?" + verifyUrl;
+                mail.Subject = "Welcome to Convergent!";
+                mail.Body = "Hello there! Thank you for your interest in convergent. Please click on the link below to verify your account.  " + verifyUrl;
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";

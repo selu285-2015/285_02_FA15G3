@@ -1,24 +1,21 @@
-﻿@using Microsoft.AspNet.Identity
+﻿
 
+@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-  
     {
-    @Html.AntiForgeryToken()
-
-    <ul class="nav navbar-nav navbar-right">
-       
+        @Html.AntiForgeryToken()
+        @*<ul class="navbar">*@
         @*comment :// this will Signin and have your username on the top left of the signin page :p*@
-        <li>@Html.ActionLink( HttpContext.Current.User.Identity.GetUserName() ,"Home" )</li>
-          <li> @Html.ActionLink("Sign Out", "Logout", "FundRaisers") </li>
-    </ul>
+        <li class="pull-right">@Html.ActionLink("Sign Out", "Logout", "FundRaisers") </li>
+        <li class="pull-right">@Html.ActionLink(HttpContext.Current.User.Identity.GetUserName(), "Home")</li>
+        @*</ul>*@
     }
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Sign Up", "Create", "FundRaisers")</li>
-        <li>@Html.ActionLink("Log In", "SignIn", "FundRaisers")</li>
-
-    </ul>
+    @*<ul class="home">*@
+    <li class="pull-right">@Html.ActionLink("Sign Up", "Create", "FundRaisers")</li>
+    <li class="pull-right">@Html.ActionLink("Sign In", "SignIn", "FundRaisers")</li>
+        @*</ul>*@
 }

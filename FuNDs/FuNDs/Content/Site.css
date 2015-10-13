@@ -1,24 +1,205 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.container {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    height: 1000px;
+    width: 1349px !important;
+    list-style: none;
+    float:left !important;
+    margin-left:0px !important;
+    padding-left:0px;
 }
 
-/* Set padding to keep content from hitting the edges */
+.header {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration-line: none;
+    background-color: white;
+    border-color: transparent;
+   
+    height: 70px;
+    width: 1349px;
+    
+    
+}
+
+.clear {
+    clear: both;
+}
+
+.logo {
+    height: 70px;
+    float: left;
+    padding: 0px;
+    background-color:white;
+}
+
+.size {
+    height: 70px;
+    width: 145px;
+    margin-left:5px;
+}
+
+.nav {
+    width: 1199px;
+    height: 70px;
+    float: right;
+    color: red;
+}
+
+.otis {
+    list-style-type: none;
+    float: left;
+    width: 1199px;
+    height:60px;
+    padding: 0;
+}
+
+    .otis li {
+        float: left;
+        display: inline-block;
+        margin: 0 !important;
+        font-size:medium;
+
+    }
+    .pull-right{
+        float: right !important;
+
+    }
+    .otis li a {
+        display: inline-block;
+        padding: 25px !important;
+        font-size:15px;
+        font-weight:bold;
+        color:#288feb;
+        margin-top:-9px;
+    }
+    .otis li a.active, li a:hover{
+       color: black; text-underline-position:unset;  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif; 
+    }
+
+li {
+    margin: -4px 3px;
+    font-size:15px;
+    background-color:transparent;
+    color:white;
+    display: inline-block;
+    height:70px;
+    
+}
+
+.partial{
+      height: 40px;
+       padding: 0px 0px;
+       margin-left:343px;
+       background-color:black;
+}
+.navbar{
+   padding: 0px 0px;
+    background-color:red;
+}
+
+.home{
+    margin-left:1px;
+    float:right;
+    padding: 1px 15px 15px 15px;
+    height:40px;
+}
+
+.Contact {
+     margin-right: 371px;
+     margin-top:1px;
+        margin-left: 15px;
+}
+
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    height: 940px !important;
+    width: 1349px;
+    margin-top: 0px;
+    background-color:#288feb;
+        margin-top: 0px;
+   
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.text {
+    background-color: #288feb;
+    color:white;
+    clear: both;
+    margin-top: 0px;
+    padding: 55px 55px;
+    height: 314px;
+    width: 1349px;
+    
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.slide {
+    height: 626px;
+    width: 100%;
+    margin: 0px;
+    background-color: #288feb;
+   
+    
+}
+
+.hr {
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer {
+    clear:both;
+}
+
+.cnct {
+    background-color: #BDBDAA;
+    height: 940px;
+    width: 1349px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+h1 {
+    margin-top: 0px;
+    padding-top: 95px;
+}
+
+    h1.hover {
+        background-color: red;
+    }
+    
+    
+.ctn {
+    height: 626px;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.carousel-indicators.active {
+    margin: 0px;
+    height: 13px;
+    width: 13px;
+}
+
+h3 {
+    color: #DDCEBB;
+}
+.link{
+    margin-left:120px;
+}
+.all{
+    background-color:black;
+    
+   
 }

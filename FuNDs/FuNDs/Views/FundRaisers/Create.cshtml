@@ -16,8 +16,9 @@
             
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class=" col-md-4 col-md-offset-4 col-sm-5 col-sm-offset-3 col-xs-4 col-xs-offset-1">
-            <div class="panel-heading" style="font-size:xx-large; text-align:center"  > Sign Up </div>
-                <div class="panel-body" style=" background-color:#DCEDC8" font-color:"#fffff">
+                <div class="form-container">
+            <div class="panel-heading" style="font-size:xx-large; text-align:center;     margin-top: 19%; background-color:white; color:#288feb;"  > Sign Up </div>
+                <div class="panel-body" style=" background-color:white" font-color:"#fffff">
                 <div class="form-group">
                 
                 <div class="col-md-10 col-md-offset-1">
@@ -60,20 +61,23 @@
                 </div>
                     </div>
                
-            
+            </div>
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-10">
-                    <input type="submit" value="Register" class="btn btn-default" />
+                    <input type="submit" value="Join Convergent" class="btn btn-default" style="background-color:#28cb75; color:white;" />
                 </div>
             </div>
+                   
             </div>
         </div>
             
     }
 
-@*<div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>*@
+<style>
+    .form-container{
+        background-color:#288feb;
+    }
+</style>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

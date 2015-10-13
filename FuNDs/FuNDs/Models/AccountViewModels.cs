@@ -115,10 +115,15 @@ namespace FuNDs.Models
     {
         //show errors whenever something is enterd wrong
         [Required(ErrorMessage = "Please input a Username")]
-        public string Email1 { get; set; }
-        [Required(ErrorMessage = "Please input a Password")]
+        public string Email { get; set; }
+
+
+
+        [DataType(DataType.Password)]
+        [Required]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
          [Display(Name = "Remember me?")]
          public bool RememberMe { get; set; }
         public bool verified { get; set; }

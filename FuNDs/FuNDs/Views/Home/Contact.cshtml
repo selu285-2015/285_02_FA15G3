@@ -1,3 +1,139 @@
 ﻿@{
     ViewBag.Title = "Contact Us";
 }
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>CSS Contact Form</title>
+
+    <meta charset="utf-8" />
+
+</head>
+
+<body>
+    <div class="body-content">
+    <h2>Contact Us</h2>
+
+    <form class="form">
+        <div class="input">
+        <p class="name">
+            <input type="text" name="name" id="name" placeholder="John Burris" />
+            <label for="name">Name</label>
+        </p>
+
+        <p class="email">
+            <input type="text" name="email" id="email" placeholder="mail@example.com" />
+            <label for="email">Email</label>
+        </p>
+
+        <p class="web">
+            <input type="text" name="add" id="add" placeholder="Address" />
+            <label for="add">Address</label>
+        </p>
+            </div>
+        <p class="text">
+            <label for="message" class="message">Message</label>
+            <textarea name="text" placeholder="Write something to us" > </textarea>
+            
+        </p>
+
+        <p class="submit">
+            <input type="submit" value="Send" />
+        </p>
+    </form>
+       </div>
+</body>
+
+</html>
+<style>
+    
+.body-content {
+	padding: 20px 150px;
+	font-size: 13px;
+	font-style: normal;
+    margin-top:0px;
+    height:930px;
+}
+
+h2 {
+	margin-top: 0px;
+    margin-left: 22%;
+    margin-bottom: 90px;
+    color: white;
+}
+label{
+    color:white;
+}
+.form{
+    background-color:#288feb;
+        margin-top: -60px;
+    margin-left: 155px;
+    width: 400px;
+}
+p{
+        margin: 15px 0 0px;
+}
+input, textarea {
+	padding: 10px;
+	border: 1px solid #E5E5E5;
+	width: 200px;
+	color: #999999;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;		
+}
+.message{
+    margin-top:5px;
+    margin-left:-1px;
+    color:white;
+}
+textarea {
+	width: 400px;
+	height: 150px;
+	max-width: 400px;
+	line-height: 18px;
+    
+}
+.submit input{
+    margin-left: 155px;
+        margin-top: -1px;
+}
+.text{
+       background-color: #288feb;
+    color: white;
+    /* clear: both; */
+    margin-top: 0px;
+    margin-left: 0px;
+    padding: 0px 0px;
+    height: 4%;
+    width: 405.141px;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	border-color:#C9C9C9;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;	
+}
+
+.form label {
+	margin-left: 0px;
+	color: white;
+}
+
+
+
+.submit input {
+	width: 100px; 
+	height: 40px;
+	background-color: #28cb75; 
+	color: #FFF;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;		
+}
+
+</style>
