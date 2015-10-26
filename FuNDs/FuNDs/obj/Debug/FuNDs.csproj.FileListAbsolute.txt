@@ -347,9 +347,9 @@ C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\System.Web.Razor.xml
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\System.Web.WebPages.xml
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\System.Web.WebPages.Razor.xml
-C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.InitialMigrations.resources
-C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.dll
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.pdb
-C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\WebGrease.dll
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.csprojResolveAssemblyReference.cache
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources

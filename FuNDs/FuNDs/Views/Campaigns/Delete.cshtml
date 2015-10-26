@@ -1,0 +1,72 @@
+﻿@model FuNDs.Models.Campaign
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Campaign</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FundRaisers.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FundRaisers.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampaignTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampaignTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampaignDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampaignDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampaignAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampaignAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndingDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

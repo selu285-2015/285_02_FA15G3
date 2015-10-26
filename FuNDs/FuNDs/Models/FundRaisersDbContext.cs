@@ -13,5 +13,7 @@ namespace FuNDs.Models
         {
         }
         public DbSet<FundRaisers> FundRaisers { get; set; }
+
+        public System.Data.Entity.DbSet<FuNDs.Models.Campaign> Campaigns { get; set; }
     }
 }

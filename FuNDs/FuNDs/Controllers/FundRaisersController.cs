@@ -22,7 +22,7 @@ namespace FuNDs.Controllers
 {
     public class FundRaisersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private FundRaisersDbContext db = new FundRaisersDbContext();
 
         // GET: FundRaisers
         public ActionResult Index()
@@ -126,6 +126,7 @@ namespace FuNDs.Controllers
 
                     // creating authetication ticket
                     FormsAuthentication.SetAuthCookie(userTryingToLogin.Email, false);
+                    Session["userId"] = doesUserExist.FundRaisersId;
                     return RedirectToAction("Index", "Home");
                 }
                 else

@@ -1,0 +1,66 @@
+﻿@model FuNDs.Models.Campaign
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Campaign</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FundRaisers.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FundRaisers.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampaignTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampaignTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampaignDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampaignDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CampaignAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CampaignAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndingDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CampaignId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -9,7 +9,7 @@ namespace FuNDs.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(FuNDs.Models.FundRaisersDbContext context)

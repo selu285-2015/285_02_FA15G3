@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FuNDs.Models.Campaign>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FundRaisers.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CampaignTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CampaignDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CampaignAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndingDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FundRaisers.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CampaignTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CampaignDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CampaignAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndingDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CampaignId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CampaignId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CampaignId })
+        </td>
+    </tr>
+}
+
+</table>
