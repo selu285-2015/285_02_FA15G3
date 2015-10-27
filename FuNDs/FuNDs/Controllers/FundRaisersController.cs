@@ -15,8 +15,8 @@ using System.Web.Security;
 using System.Net.Mail;
 using System.Configuration;
 using System.Threading.Tasks;
-
-
+using Facebook;
+using TweetSharp;
 
 namespace FuNDs.Controllers
 {
@@ -351,6 +351,96 @@ namespace FuNDs.Controllers
 
             return RedirectToAction("Index", "Home");
 
+        }
+        //FACEBOOK LOGIN
+        //FACEBOOK LOGIN
+        private Uri RedirectUri
+        {
+            get
+            {
+                var uriBuilder = new UriBuilder(Request.Url);
+                uriBuilder.Query = null;
+                uriBuilder.Fragment = null;
+                uriBuilder.Path = Url.Action("FacebookCallback");
+                return uriBuilder.Uri;
+            }
+        }
+
+        public ActionResult Facebook()
+        {
+            var fb = new FacebookClient();
+            var loginUrl = fb.GetLoginUrl(new
+            {
+                client_id = "618375218302469",
+                client_secret = "7af3f4e7d7bd2089a1e9f71dfc659584",
+                redirect_uri = RedirectUri.AbsoluteUri,
+                response_type = "code",
+                scope = "email" // Add other permissions as needed
+            });
+
+            return Redirect(loginUrl.AbsoluteUri);
+        }
+
+        public ActionResult FacebookCallback(string code)
+        {
+            var fb = new FacebookClient();
+            dynamic result = fb.Post("oauth/access_token", new
+            {
+                client_id = "618375218302469",
+                client_secret = "7af3f4e7d7bd2089a1e9f71dfc659584",
+                redirect_uri = RedirectUri.AbsoluteUri,
+                code = code
+            });
+
+            var accessToken = result.access_token;
+
+            // Store the access token in the session
+            Session["AccessToken"] = accessToken;
+
+            // update the facebook client with the access token so 
+            // we can make requests on behalf of the user
+            fb.AccessToken = accessToken;
+
+            // Get the user's information
+            dynamic me = fb.Get("me?fields=first_name,last_name,id,email");
+            string email = me.email;
+
+            // Set the auth cookie
+            FormsAuthentication.SetAuthCookie(email, false);
+
+            return RedirectToAction("Index", "Home");
+        }
+        //LOGIN WITH TWITTER
+        //LOGIN WITH TWITTER
+        public ActionResult Twitter()
+        {
+            // Step 1 - Retrieve an OAuth Request Token
+            TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
+
+            var url = Url.Action("TwitterCallback", "FundRaisers", null, "http");
+            // This is the registered callback URL
+            OAuthRequestToken requestToken = service.GetRequestToken(url);
+
+            // Step 2 - Redirect to the OAuth Authorization URL
+            Uri uri = service.GetAuthorizationUri(requestToken);
+            return new RedirectResult(uri.ToString(), false /*permanent*/);
+        }
+        // This URL is registered as the application's callback at http://dev.twitter.com
+        public ActionResult TwitterCallback(string oauth_token, string oauth_verifier)
+        {
+            var requestToken = new OAuthRequestToken { Token = oauth_token };
+
+            // Step 3 - Exchange the Request Token for an Access Token
+            TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
+            OAuthAccessToken accessToken = service.GetAccessToken(requestToken, oauth_verifier);
+
+            // Step 4 - User authenticates using the Access Token
+            service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
+            TwitterUser user = service.VerifyCredentials(new VerifyCredentialsOptions());
+
+            FormsAuthentication.SetAuthCookie(user.ScreenName, false);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
