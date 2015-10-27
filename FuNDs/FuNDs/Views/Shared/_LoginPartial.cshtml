@@ -7,8 +7,11 @@
         @Html.AntiForgeryToken()
         @*<ul class="navbar">*@
         @*comment :// this will Signin and have your username on the top left of the signin page :p*@
+       
         <li class="pull-right">@Html.ActionLink("Sign Out", "Logout", "FundRaisers") </li>
         <li class="pull-right">@Html.ActionLink(HttpContext.Current.User.Identity.GetUserName(), "Home")</li>
+        <li class="pull-right">@Html.ActionLink("My Profile", "MyProfile", "FundRaisers") </li>
+        <li class="pull-right">@Html.ActionLink("My Campaigns", "Index", "Campaigns") </li>
         @*</ul>*@
     }
 }

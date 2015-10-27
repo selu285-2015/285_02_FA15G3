@@ -26,5 +26,13 @@ namespace FuNDs.Controllers
 
             return View();
         }
+
+        public ActionResult HowItWorks()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
     }
 }

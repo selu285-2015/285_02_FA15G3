@@ -147,7 +147,12 @@ namespace FuNDs.Controllers
             return View();
         }
 
+        // myprofile action method 
 
+        public ActionResult MyProfile()
+        {
+            return View();
+        }
         public ActionResult doesEmailExist()
         {
             return View();

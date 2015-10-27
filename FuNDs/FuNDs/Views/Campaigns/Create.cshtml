@@ -4,12 +4,14 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@if (Request.IsAuthenticated)
 {
-    @Html.AntiForgeryToken()
-    
+
+using (Html.BeginForm())
+{
+        @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
         <h4>Campaign</h4>
         <hr />
@@ -73,3 +75,10 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+}
+
+else {
+ 
+    @Html.ActionLink("You are just a step ahead. Sign up first", "Create", "FundRaisers")
+
+}

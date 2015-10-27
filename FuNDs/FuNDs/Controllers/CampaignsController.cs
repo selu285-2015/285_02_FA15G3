@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FuNDs.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FuNDs.Controllers
 {
@@ -17,6 +18,25 @@ namespace FuNDs.Controllers
         // GET: Campaigns
         public ActionResult Index()
         {
+            //Campaign userCampaigns = new Campaign();
+            //userCampaigns = db.Campaigns.FirstOrDefault(s => s.FundRaisersId.Equals(userCampaigns.FundRaisersId));
+
+
+
+            // return View(userCampaigns.ToList());
+
+            // this is the default codes
+
+            //string p = User.Identity.GetUserId();
+
+                  
+
+
+
+            //            select s).ToList();
+
+                        //return View(user.ToList());
+
             var campaigns = db.Campaigns.Include(c => c.FundRaisers);
             return View(campaigns.ToList());
         }

@@ -52,6 +52,7 @@ namespace FuNDs.Models
         public string verificationToken { get; set; }
 
         public virtual ICollection<Campaign> Campaigns { get; set; }
+    
     }
 }
    
