@@ -61,6 +61,10 @@
       <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Hammock, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\Hammock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Hammock.ClientProfile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
       <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
       <Private>True</Private>
@@ -123,7 +127,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -181,7 +185,7 @@
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
+      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\TweetSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -210,6 +214,10 @@
     <Compile Include="Migrations\201510261814572_temp1.cs" />
     <Compile Include="Migrations\201510261814572_temp1.Designer.cs">
       <DependentUpon>201510261814572_temp1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510272319095_temp2.cs" />
+    <Compile Include="Migrations\201510272319095_temp2.Designer.cs">
+      <DependentUpon>201510272319095_temp2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -257,13 +265,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -276,28 +278,36 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Campaigns\Create.cshtml" />
+    <Content Include="Views\Campaigns\Delete.cshtml" />
+    <Content Include="Views\Campaigns\Details.cshtml" />
+    <Content Include="Views\Campaigns\Edit.cshtml" />
+    <Content Include="Views\Campaigns\Index.cshtml" />
+    <Content Include="Views\FundRaisers\ChangePassword.cshtml" />
+    <Content Include="Views\FundRaisers\Create.cshtml" />
+    <Content Include="Views\FundRaisers\Delete.cshtml" />
+    <Content Include="Views\FundRaisers\Details.cshtml" />
+    <Content Include="Views\FundRaisers\Edit.cshtml" />
+    <Content Include="Views\FundRaisers\Index.cshtml" />
+    <Content Include="Views\FundRaisers\MyProfile.cshtml" />
+    <Content Include="Views\FundRaisers\SignIn.cshtml" />
+    <Content Include="Views\FundRaisers\SignInFailure.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\HowItWorks.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\FundRaisers\Create.cshtml" />
-    <Content Include="Views\FundRaisers\Delete.cshtml" />
-    <Content Include="Views\FundRaisers\Details.cshtml" />
-    <Content Include="Views\FundRaisers\Edit.cshtml" />
-    <Content Include="Views\FundRaisers\Index.cshtml" />
-    <Content Include="Views\FundRaisers\SignIn.cshtml" />
-    <Content Include="Views\FundRaisers\SignInFailure.cshtml" />
-    <Content Include="Views\Campaigns\Create.cshtml" />
-    <Content Include="Views\Campaigns\Delete.cshtml" />
-    <Content Include="Views\Campaigns\Details.cshtml" />
-    <Content Include="Views\Campaigns\Edit.cshtml" />
-    <Content Include="Views\Campaigns\Index.cshtml" />
-    <Content Include="Views\Home\HowItWorks.cshtml" />
-    <Content Include="Views\FundRaisers\MyProfile.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\FundRaisers\UserSettings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510261814572_temp1.resx">
       <DependentUpon>201510261814572_temp1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510272319095_temp2.resx">
+      <DependentUpon>201510272319095_temp2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

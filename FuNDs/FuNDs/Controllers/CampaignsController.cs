@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using FuNDs.Models;
 using Microsoft.AspNet.Identity;
 
+using System.Web.Services;
+
 namespace FuNDs.Controllers
 {
     public class CampaignsController : Controller
@@ -18,27 +20,27 @@ namespace FuNDs.Controllers
         // GET: Campaigns
         public ActionResult Index()
         {
-            //Campaign userCampaigns = new Campaign();
-            //userCampaigns = db.Campaigns.FirstOrDefault(s => s.FundRaisersId.Equals(userCampaigns.FundRaisersId));
+            int x = Convert.ToInt32(Session["userId"]);
 
+            
+            var user = db.FundRaisers.FirstOrDefault(s => s.FundRaisersId == x);
 
+            if (user != null)
+            { 
+                List<Campaign> campaignlist = new List<Campaign>();
+                foreach (var campaign in user.Campaigns)
+                {
+                    campaignlist.Add(campaign);
+                }
 
-            // return View(userCampaigns.ToList());
-
-            // this is the default codes
-
-            //string p = User.Identity.GetUserId();
-
-                  
-
-
-
-            //            select s).ToList();
-
-                        //return View(user.ToList());
-
-            var campaigns = db.Campaigns.Include(c => c.FundRaisers);
-            return View(campaigns.ToList());
+                return View(campaignlist.ToList());
+            }
+            else
+            {
+                ModelState.AddModelError("doesUserExist", "Email Not verified. Please check your email confirmation");
+                return View("Index", "Home");
+            }
+           
         }
 
         // GET: Campaigns/Details/5
@@ -78,7 +80,7 @@ namespace FuNDs.Controllers
                 return RedirectToAction("Index");
             }
 
-           ViewBag.FundRaisersId = new SelectList(db.FundRaisers, "ID", "FirstName", campaign.FundRaisersId);
+            ViewBag.FundRaisersId = new SelectList(db.FundRaisers, "ID", "FirstName", campaign.FundRaisersId);
             return View(campaign);
         }
 
@@ -94,7 +96,7 @@ namespace FuNDs.Controllers
             {
                 return HttpNotFound();
             }
-           ViewBag.FundRaisersId = new SelectList(db.FundRaisers, "ID", "FirstName", campaign.FundRaisersId);
+            ViewBag.FundRaisersId = new SelectList(db.FundRaisers, "ID", "FirstName", campaign.FundRaisersId);
             return View(campaign);
         }
 
@@ -111,7 +113,7 @@ namespace FuNDs.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-           ViewBag.FundRaisersId = new SelectList(db.FundRaisers, "ID", "FirstName", campaign.FundRaisersId);
+            ViewBag.FundRaisersId = new SelectList(db.FundRaisers, "ID", "FirstName", campaign.FundRaisersId);
             return View(campaign);
         }
 

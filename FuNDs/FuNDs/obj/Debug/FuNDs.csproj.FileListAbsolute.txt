@@ -347,7 +347,6 @@ C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\System.Web.WebPages.Deployment.x
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\System.Web.WebPages.Razor.xml
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.dll
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.pdb
-C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.csprojResolveAssemblyReference.cache
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
 C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources
@@ -359,3 +358,10 @@ C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.dll
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Facebook.xml
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Hammock.ClientProfile.pdb
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.pdb
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\Facebook.dll
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\Hammock.dll
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\TweetSharp.dll
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\Facebook.xml
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\Hammock.pdb
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\bin\TweetSharp.pdb
+C:\Users\Pankaj\Desktop\Cmps285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp2.resources

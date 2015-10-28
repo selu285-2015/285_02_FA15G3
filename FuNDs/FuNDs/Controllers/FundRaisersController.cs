@@ -17,6 +17,7 @@ using System.Configuration;
 using System.Threading.Tasks;
 using Facebook;
 using TweetSharp;
+using Microsoft.AspNet.Identity;
 
 namespace FuNDs.Controllers
 {
@@ -230,17 +231,7 @@ namespace FuNDs.Controllers
 
             }
         }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine("Email sending failed: " + e.Message);
-        //    }
-
-        //    Console.WriteLine("Email has been sent to " + email);
-        //    Console.ReadKey();
-        //}
-        //
-
-
+   
         [AllowAnonymous]
         public ActionResult Verify(string ID)
         {
@@ -332,6 +323,67 @@ namespace FuNDs.Controllers
             db.FundRaisers.Remove(fundRaiser);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        // forgot Password
+        public ActionResult forgotPassword() {
+
+            return View();
+        }
+
+        // changing password
+        public ActionResult ChangePassword(string emailAddress)
+        {
+            var user = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
+            return View(user);
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(Models.RegisterViewModel updatedUser)
+        {
+            // Get the current user's emailAddress to find the current user in the database.
+            string emailAddress = User.Identity.GetUserName();
+            FundRaisers currentUser = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
+
+            // Only change the user's password in the database if the password field is not left blank.
+            if (updatedUser.Password != "")
+            {
+                string newPassword = Crypto.HashPassword(updatedUser.Password);
+                currentUser.Password = newPassword;
+                currentUser.ConfirmPassword = newPassword;
+            }
+            db.Entry(currentUser).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
+        public ActionResult UserSettings(string emailAddress)
+        {
+            var user = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserSettings(Models.RegisterViewModel updatedUser)
+        {
+            // Get the current user's emailAddress to find the current user in the database.
+            string emailAddress = User.Identity.GetUserName();
+            var currentUser = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
+
+            // Update the currentUser's respective fields.
+            currentUser.FirstName = updatedUser.FirstName;
+            currentUser.LastName = updatedUser.LastName;
+
+            db.Entry(currentUser).State = EntityState.Modified;
+            db.SaveChanges();
+
+            // Go back to /Users/ProfilePage
+            return RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
