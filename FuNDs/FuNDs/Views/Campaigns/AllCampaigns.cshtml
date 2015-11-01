@@ -1,0 +1,130 @@
+﻿@model IEnumerable<FuNDs.Models.Campaign>
+@{
+    ViewBag.Title = "AllCampaigns";
+}
+
+<h2>AllCampaigns</h2>
+
+
+@*<div class="text-center"><a class="btn btn-cta btn-cta-primary" href="https://localhost:44301/Projects/Create">Create a New Project </a></div>
+@using (Html.BeginForm())
+{
+    <div style="float:right">
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </div>
+}
+@*<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CampaignTitle)
+        </th>
+        
+        @*public DateTime? StartingDate { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public DateTime? EndingDate { get; set; }*@
+
+        @*<th>
+            @Html.DisplayNameFor(model => model.CampaignDescription)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CampaignAmount)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.StartingDate)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.EndingDate)
+        </th>
+    </tr>
+
+    var db = new FundRaisersDbContext();
+    @foreach (var item in Campaign)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstMidName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+            </td>
+        </tr>
+    }
+    </table>*@
+@*// this is the end of the codes that needed to be consider*@
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table>
+    <tr>
+        <th>
+            @Html.ActionLink("Campaign Title", "AllCampaigns", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            CampaignDescription
+        </th>
+        <th>
+            CampaignAmount
+        </th>
+       
+        
+        <th>
+            @Html.ActionLink("Starting Date", "AllCampaigns", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+
+        <th>
+            Ending Date
+        </th>
+        <th></th>
+    </tr>
+    </table>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        Campaign Title: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampaignTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampaignAmount)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.CampaignDescription)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.StartingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndingDate)
+            </td>
+
+
+        </tr>
+    }
+    }

@@ -16,7 +16,7 @@ using System.Net.Mail;
 using System.Configuration;
 using System.Threading.Tasks;
 using Facebook;
-using TweetSharp;
+//using TweetSharp;
 using Microsoft.AspNet.Identity;
 
 namespace FuNDs.Controllers
@@ -152,6 +152,11 @@ namespace FuNDs.Controllers
 
         public ActionResult MyProfile()
         {
+            return View();
+        }
+
+        public ActionResult UploadImage() {
+
             return View();
         }
         public ActionResult doesEmailExist()
@@ -464,36 +469,104 @@ namespace FuNDs.Controllers
         }
         //LOGIN WITH TWITTER
         //LOGIN WITH TWITTER
-        public ActionResult Twitter()
+        //public ActionResult Twitter()
+        //{
+        //    // Step 1 - Retrieve an OAuth Request Token
+        //    TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
+
+        //    var url = Url.Action("TwitterCallback", "FundRaisers", null, "http");
+        //    // This is the registered callback URL
+        //    OAuthRequestToken requestToken = service.GetRequestToken(url);
+
+        //    // Step 2 - Redirect to the OAuth Authorization URL
+        //    Uri uri = service.GetAuthorizationUri(requestToken);
+        //    return new RedirectResult(uri.ToString(), false /*permanent*/);
+        //}
+        //// This URL is registered as the application's callback at http://dev.twitter.com
+        //public ActionResult TwitterCallback(string oauth_token, string oauth_verifier)
+        //{
+        //    var requestToken = new OAuthRequestToken { Token = oauth_token };
+
+        //    // Step 3 - Exchange the Request Token for an Access Token
+        //    TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
+        //    OAuthAccessToken accessToken = service.GetAccessToken(requestToken, oauth_verifier);
+
+        //    // Step 4 - User authenticates using the Access Token
+        //    service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
+        //    TwitterUser user = service.VerifyCredentials(new VerifyCredentialsOptions());
+
+        //    FormsAuthentication.SetAuthCookie(user.ScreenName, false);
+
+        //    return RedirectToAction("Index", "Home");
+        //}
+
+
+        public ActionResult ChangePicture()
         {
-            // Step 1 - Retrieve an OAuth Request Token
-            TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
-
-            var url = Url.Action("TwitterCallback", "FundRaisers", null, "http");
-            // This is the registered callback URL
-            OAuthRequestToken requestToken = service.GetRequestToken(url);
-
-            // Step 2 - Redirect to the OAuth Authorization URL
-            Uri uri = service.GetAuthorizationUri(requestToken);
-            return new RedirectResult(uri.ToString(), false /*permanent*/);
+            return View("ChangePicture");
         }
-        // This URL is registered as the application's callback at http://dev.twitter.com
-        public ActionResult TwitterCallback(string oauth_token, string oauth_verifier)
+
+        [HttpPost]
+        public ActionResult ChangePicture(HttpPostedFileBase file, string id)
         {
-            var requestToken = new OAuthRequestToken { Token = oauth_token };
+            //  var user = HttpContext.Current.User.Identity.GetUserName();
+            string emailAddress = User.Identity.GetUserName();
+            var user = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
 
-            // Step 3 - Exchange the Request Token for an Access Token
-            TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
-            OAuthAccessToken accessToken = service.GetAccessToken(requestToken, oauth_verifier);
+          //  var user = .FindByName(id);
+            if (file != null && file.ContentLength > 0 && user != null)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~Content/Images"), fileName);
+                file.SaveAs(path);
+             //   user.Image = "\\Images\\" + fileName;
+                //user.Image = "https://az213233.vo.msecnd.net/Content/4.3.00298.3.140421-1904/Images/QS_database.png";
 
-            // Step 4 - User authenticates using the Access Token
-            service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
-            TwitterUser user = service.VerifyCredentials(new VerifyCredentialsOptions());
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+               // db.Update(user);
+            }
 
-            FormsAuthentication.SetAuthCookie(user.ScreenName, false);
-
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase photo)
+        {
+            //string path = @"../Content/profileImage";
+
+            if (photo != null && photo.ContentLength > 0)
+            {
+                var FileName = Guid.NewGuid();
+
+                var path = System.IO.Path.Combine(Server.MapPath("~/Content/profileImage/"),
+                                        FileName.ToString() + ".pdf");
+                photo.SaveAs(path);
+                photo.SaveAs(path + photo.FileName);
+
+                var user= (FundRaisers)HttpContext.Session["fundRaiser"];
+
+             //   user.Image = path;
+
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("UploadImage");
+
+            }
+            else if (photo == null)
+            {
+                TempData["tempMessage"] =
+                        "Please add a picture before uploading";
+                return RedirectToAction("UploadImage");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
     }
 }
 

@@ -48,6 +48,9 @@ namespace FuNDs.Models
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
 
+        //[Display(Name = "Picture")]
+        //public string Image { get; set; }
+
         public bool verified { get; set; }
         public string verificationToken { get; set; }
 

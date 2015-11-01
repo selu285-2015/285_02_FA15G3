@@ -1,0 +1,26 @@
+﻿@model FuNDs.Models.FundRaisers
+
+
+<form action="/FundRaisers/Upload" method="post" enctype="multipart/form-data" style="padding-left:600px;">
+
+    <h1><label for="photo"></label></h1>
+
+    <br />
+    <img src="<img src=@Html.DisplayFor(model => model.Image)" alt="Mountain View" style="width:274px;height:148px">
+    <br />
+
+    <input type="file" class="btn btn-primary" name="photo" id="photo" />
+    <br />
+
+    <p> Share any portable documents and files.</p>
+
+
+    <div class="form-make" style="padding-left:71px;">
+        <input type="submit" class="btn btn-default" value="Upload" />
+    </div>
+    <br />
+    <br />
+    <br />
+
+
+</form>

@@ -17,16 +17,15 @@ namespace FuNDs.Controllers
     {
         private FundRaisersDbContext db = new FundRaisersDbContext();
 
-        // GET: Campaigns
         public ActionResult Index()
         {
             int x = Convert.ToInt32(Session["userId"]);
 
-            
+
             var user = db.FundRaisers.FirstOrDefault(s => s.FundRaisersId == x);
 
             if (user != null)
-            { 
+            {
                 List<Campaign> campaignlist = new List<Campaign>();
                 foreach (var campaign in user.Campaigns)
                 {
@@ -40,10 +39,110 @@ namespace FuNDs.Controllers
                 ModelState.AddModelError("doesUserExist", "Email Not verified. Please check your email confirmation");
                 return View("Index", "Home");
             }
-           
+
         }
 
-        // GET: Campaigns/Details/5
+
+
+        // GET: Campaigns
+        //public ActionResult Index()
+        //{
+        //    int x = Convert.ToInt32(Session["userId"]);
+
+
+        //    var user = db.FundRaisers.FirstOrDefault(s => s.FundRaisersId == x);
+
+        //    if (user != null)
+        //    {
+        //        List<Campaign> campaignlist = new List<Campaign>();
+        //        foreach (var campaign in user.Campaigns)
+        //        {
+        //            campaignlist.Add(campaign);
+        //        }
+
+        //        return View(campaignlist.ToList());
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError("doesUserExist", "Email Not verified. Please check your email confirmation");
+        //        return View("Index", "Home");
+        //    }
+
+        //}
+
+        public ActionResult AllCampaigns(string sortOrder, string searchString)
+        {
+            // public ViewResult Index(string sortOrder, string searchString)
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                ViewBag.CurrentSort = sortOrder;
+                ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+                // ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+                var campaigns = from s in db.Campaigns
+                                select s;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    campaigns = campaigns.Where(s => s.CampaignTitle.ToUpper().Contains(searchString.ToUpper()));
+                                          
+                }
+
+                // campaigns = campaigns.Where(s => s.CampaignTitle.Contains(searchString));
+
+                switch (sortOrder)
+                {
+                    case "Name_desc":
+                        campaigns = campaigns.OrderByDescending(s => s.CampaignTitle);
+                        break;
+                    case "Date":
+                        campaigns = campaigns.OrderBy(s => s.StartingDate);
+                        break;
+                    case "Date_desc":
+                       campaigns = campaigns.OrderByDescending(s => s.StartingDate);
+                       break;
+                    default:
+                        campaigns = campaigns.OrderBy(s => s.CampaignTitle);
+                        break;
+                }
+                return View("AllCampaigns", campaigns.ToList());
+            }
+            //  return View("SearchResults", projects.ToList());
+            else
+            {
+
+                //foreach (var campaign in user.Campaigns)
+                //{
+                //    campaignlist.Add(campaign);
+                //}
+
+                //return View(campaignlist.ToList());
+
+                List<Campaign> allCampaigns = new List<Campaign>();
+
+                allCampaigns = db.Campaigns.ToList();
+                return View(allCampaigns);
+            }
+        }
+
+        //public ActionResult AllCampaigns(string searchString) {
+
+
+      
+        //    var campaigns = from m in db.Campaigns
+        //                 select m;
+
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        campaigns = campaigns.Where(s => s.CampaignTitle.Contains(searchString));
+        //    }
+
+        //    return View(campaigns);
+        //}
+            
+        
         public ActionResult Details(int? id)
         {
             if (id == null)

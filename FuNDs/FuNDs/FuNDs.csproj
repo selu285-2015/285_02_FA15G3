@@ -207,17 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510261805353_temp.cs" />
-    <Compile Include="Migrations\201510261805353_temp.Designer.cs">
-      <DependentUpon>201510261805353_temp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510261814572_temp1.cs" />
-    <Compile Include="Migrations\201510261814572_temp1.Designer.cs">
-      <DependentUpon>201510261814572_temp1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510272319095_temp2.cs" />
-    <Compile Include="Migrations\201510272319095_temp2.Designer.cs">
-      <DependentUpon>201510272319095_temp2.cs</DependentUpon>
+    <Compile Include="Migrations\201511010600227_temp.cs" />
+    <Compile Include="Migrations\201511010600227_temp.Designer.cs">
+      <DependentUpon>201511010600227_temp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -308,6 +300,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\FundRaisers\UserSettings.cshtml" />
+    <Content Include="Views\FundRaisers\UploadImage.cshtml" />
+    <Content Include="Views\FundRaisers\ChangePicture.cshtml" />
+    <Content Include="Views\Campaigns\AllCampaigns.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,14 +316,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510261805353_temp.resx">
-      <DependentUpon>201510261805353_temp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510261814572_temp1.resx">
-      <DependentUpon>201510261814572_temp1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510272319095_temp2.resx">
-      <DependentUpon>201510272319095_temp2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511010600227_temp.resx">
+      <DependentUpon>201511010600227_temp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
