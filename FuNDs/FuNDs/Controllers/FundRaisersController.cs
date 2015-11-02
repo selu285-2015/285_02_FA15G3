@@ -72,21 +72,23 @@ namespace FuNDs.Controllers
 
                 db.SaveChanges();
                 //  
-              this.confirmationEmailSend(FundRaisers.Email, FundRaisers.verificationToken);
+                this.confirmationEmailSend(FundRaisers.Email, FundRaisers.verificationToken);
                 return RedirectToAction("checkEmail");
 
                 //   HttpContext.Session.Add("fundRaiser", FundRaisers);
 
 
             }
-            else {
+            else
+            {
 
 
                 return View("FundRaisers");
             }
         }
 
-        public ActionResult CheckEmail() {
+        public ActionResult CheckEmail()
+        {
 
 
             return RedirectToAction("Index", "Home");
@@ -114,13 +116,12 @@ namespace FuNDs.Controllers
 
                 FundRaisers doesUserExist = db.FundRaisers.FirstOrDefault(s => s.Email.Equals(userTryingToLogin.Email));
 
-                if (!doesUserExist.verified )
+                if (!doesUserExist.verified)
                 {
                     ModelState.AddModelError("doesUserExist", "Email Not verified. Please check your email confirmation");
                     return View("SignInFailure");
                 }
 
-                // var dbPassword = db.FundRaisers.Where(fundOb => fundOb.Email == fundRaisers.Email1).FirstOrDefault().Password;
                 bool a = Crypto.VerifyHashedPassword(doesUserExist.Password, userTryingToLogin.Password);
                 if (a == true)
                 {
@@ -155,7 +156,8 @@ namespace FuNDs.Controllers
             return View();
         }
 
-        public ActionResult UploadImage() {
+        public ActionResult UploadImage()
+        {
 
             return View();
         }
@@ -187,29 +189,6 @@ namespace FuNDs.Controllers
 
 
 
-        //    public void confirmationEmailSend(String emailAddress, String verificationToken)
-        //    {
-        //        string verifyUrl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + "/FundRaisers/verify?id="
-        //            + verificationToken;
-        //        //  smtp.UseDefaultCredentials = True
-
-        //        var message = new System.Net.Mail.MailMessage("Convergent.origin@gmail.com", emailAddress)
-        //        {
-
-        //            Subject = " Welcome to fundraising project!!! Please verify your Crux account: ",
-        //            Body = "Team => The Usual Suspects Welcomes you!!! To complete the registration, Please click the following link for verification purpose " + verifyUrl,
-
-        //        };
-
-        //        var client = new SmtpClient();
-        //        client.EnableSsl = true;
-        //        client.UseDefaultCredentials = false;
-
-        //        client.Send(message);
-
-        //    }
-        //}
-
         // need to understand
         public void confirmationEmailSend(string email, string verificationToken)
         {
@@ -236,7 +215,7 @@ namespace FuNDs.Controllers
 
             }
         }
-   
+
         [AllowAnonymous]
         public ActionResult Verify(string ID)
         {
@@ -269,10 +248,8 @@ namespace FuNDs.Controllers
                 return View();
             }
         }
-
-
         
-      
+
         // GET: FundRaisers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -331,13 +308,7 @@ namespace FuNDs.Controllers
         }
 
 
-        // forgot Password
-        public ActionResult forgotPassword() {
-
-            return View();
-        }
-
-        // changing password
+       
         public ActionResult ChangePassword(string emailAddress)
         {
             var user = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
@@ -513,18 +484,18 @@ namespace FuNDs.Controllers
             string emailAddress = User.Identity.GetUserName();
             var user = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
 
-          //  var user = .FindByName(id);
+            //  var user = .FindByName(id);
             if (file != null && file.ContentLength > 0 && user != null)
             {
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~Content/Images"), fileName);
                 file.SaveAs(path);
-             //   user.Image = "\\Images\\" + fileName;
+                //   user.Image = "\\Images\\" + fileName;
                 //user.Image = "https://az213233.vo.msecnd.net/Content/4.3.00298.3.140421-1904/Images/QS_database.png";
 
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-               // db.Update(user);
+                // db.Update(user);
             }
 
             return RedirectToAction("Index");
@@ -544,9 +515,9 @@ namespace FuNDs.Controllers
                 photo.SaveAs(path);
                 photo.SaveAs(path + photo.FileName);
 
-                var user= (FundRaisers)HttpContext.Session["fundRaiser"];
+                var user = (FundRaisers)HttpContext.Session["fundRaiser"];
 
-             //   user.Image = path;
+                //   user.Image = path;
 
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
@@ -567,6 +538,104 @@ namespace FuNDs.Controllers
 
 
 
-    }
-}
 
+        public ActionResult ForgotPassword() {
+
+            return View();
+
+        }
+
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // public ActionResult ForgotPassword(Models.ForgotPasswordViewModel model)
+        public ActionResult ForgotPassword(Models.ResetPasswordViewModel model)
+        {
+            string emailAddress = model.Email;
+            
+            var user = db.FundRaisers.FirstOrDefault(s => s.Email.Equals(emailAddress));
+
+            string callbackUrl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + "/FundRaisers/verify1?ID="
+           + user.verificationToken;
+            MailMessage mail = new MailMessage();
+            mail.To.Add(model.Email);
+            mail.From = new MailAddress("Convergent.origin@gmail.com");
+            mail.Subject = "Welcome to Convergent!";
+
+
+
+            mail.Body = "Hello there! Thank you for your interest in convergent. Please click on the link below to verify your account <a href =\"" + callbackUrl + "\">here </a>";
+            mail.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential
+            ("Convergent.origin@gmail.com", "fall2015cmps285");// Enter senders User name and password
+            smtp.EnableSsl = true;
+            Console.WriteLine("Sending email .... ");
+            smtp.Send(mail);
+
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        [AllowAnonymous]
+        public ActionResult Verify1(string ID)
+        {
+            if (string.IsNullOrEmpty(ID) || (!System.Text.RegularExpressions.Regex.IsMatch(ID,
+                           @"[0-9a-f]{8}\-([0-9a-f]{4}\-){3}[0-9a-f]{12}")))
+            {
+                TempData["tempMessage"] =
+                        "The user account is not valid. Please try clicking the link in your email again.";
+                return RedirectToAction("Login");
+            }
+
+            else
+            {
+                var fundRaiser = db.FundRaisers.FirstOrDefault(m => m.verificationToken == new Guid(ID).ToString());
+
+                string n = new Guid(ID).ToString();
+                if (fundRaiser != null)
+                {
+                    return RedirectToAction("ResetPassword", "FundRaisers");
+                    // return View("ResetPassword","FundRaisers");
+                }
+
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+            }
+        }
+
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(Models.ResetPasswordViewModel model)
+        {
+            var user = db.FundRaisers.FirstOrDefault(m => m.Email.Equals(model.Email));
+
+            if (user.Password != "")
+            {
+                string newPassword = Crypto.HashPassword(model.Password);
+                user.Password = newPassword;
+                user.ConfirmPassword = newPassword;
+            
+            db.Entry(user).State = EntityState.Modified;
+            db.SaveChanges();}
+
+            return RedirectToAction("Index", "Home");
+        }
+        }
+    }
+
+
+        
+    

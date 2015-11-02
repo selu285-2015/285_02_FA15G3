@@ -357,3 +357,5 @@ C:\Users\Pankaj\Desktop\CMPS285\FuNDs\FuNDs\obj\Debug\FuNDs.dll
 C:\Users\Pankaj\Desktop\CMPS285\FuNDs\FuNDs\obj\Debug\FuNDs.pdb
 C:\Users\Pankaj\Desktop\CMPS285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
 C:\Users\Pankaj\Desktop\CMPS285\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
+C:\Users\Pankaj\Desktop\CMPS285\FuNDs\FuNDs\obj\Debug\FuNDs.csprojResolveAssemblyReference.cache
+C:\Users\Pankaj\Desktop\CMPS285\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources
