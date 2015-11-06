@@ -1,10 +1,4 @@
-﻿
-
-
-
-
-
-
+﻿@model FuNDs.Models.FundRaisers
 @{
     ViewBag.Title = "About";
 }
@@ -18,7 +12,8 @@
     <div class="row">
         <div class="col-sm-3">
             <div class="team-member">
-                @*<img src=@Url.Content("~/Content/images/Aabishkar.jpg") class="img-responsive " alt="Image">*@
+                @*<img src="@Html.DisplayFor(model => model.Image)" class="img-thumbnail" height="200px" width="200px">*@
+                <img src= @Model.Image class="img-responsive " alt="Image">
                 <img src=imagePath class="img-responsive " alt="Image">
                 <a href="https://twitter.com/aabishkart" target="blank">
                     <h4>Aabishkar Timalsina</h4>

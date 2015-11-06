@@ -1,0 +1,14 @@
+﻿@model FuNDs.Models.FundRaisers
+@using Microsoft.AspNet.Identity
+
+
+string emailAddress = User.Identity.GetUserName();
+  var user = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
+if (user.Image!= "")
+{
+    <div class="result">
+        <img src="@Model.Image" alt="image" />
+
+    </div>
+}
+    
