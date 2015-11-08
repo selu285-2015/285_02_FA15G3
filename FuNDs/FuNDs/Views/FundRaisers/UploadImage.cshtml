@@ -1,7 +1,7 @@
 ﻿@model FuNDs.Models.FundRaisers
 
 
-@*<form action="/FundRaisers/Upload" method="post" enctype="multipart/form-data" style="padding-left:600px;">
+<form action="/FundRaisers/Upload" method="post" enctype="multipart/form-data" style="padding-left:600px;">
 
     <h1><label for="photo"></label></h1>
 
@@ -23,59 +23,4 @@
     <br />
 
 
-</form>*@
-
-
-@{
-    ViewBag.Title = "UploadImage";
-}
-
-@Scripts.Render("~/bundles/modernizr")
-@Styles.Render("~/Content/bootstrap.css")
-@Styles.Render("~/Content/base.css")
-
-
-
-<main>
-
-    <div class="form-horizontal">
-        <div class="form-image-group">
-            <h3 style="font-size:22px;">Few Steps Away! Share what you have. </h3>
-            <h3> Make your First Upload.</h3>
-            <p style="padding-left:45px;"> Check you Email for Verification Purposes!. - Team Crux</p>
-            <form action="/FundRaisers/Upload" method="post" enctype="multipart/form-data" style="padding-left:600px;">
-
-                <h1><label for="photo"></label></h1>
-
-                <br />
-                <img src="~/Content/img/push.jpg" alt="Mountain View" style="width:274px;height:148px">
-                <br />
-
-                <input type="file" class="btn btn-primary" name="photo" id="photo" />
-                <br />
-
-                <p> Share any portable documents and files.</p>
-
-
-                <div class="form-make" style="padding-left:71px;">
-                    <input type="submit" class="btn btn-default" value="Upload" />
-                </div>
-                <br />
-                <br />
-                <br />
-
-
-            </form>
-            <div class="form-make" style="padding-left:763px;">
-                <button class="btn btn-primary" type="button">
-                    @Html.ActionLink("Next >>", "Login", "FundRaisers")
-                </button>
-            </div><br />
-        </div>
-    </div>
-
-</main>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+</form>
