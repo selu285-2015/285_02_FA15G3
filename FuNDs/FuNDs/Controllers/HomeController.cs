@@ -1,5 +1,4 @@
-﻿using FuNDs.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +8,6 @@ namespace FuNDs.Controllers
 {
     public class HomeController : Controller
     {
-        private FundRaisersDbContext db = new FundRaisersDbContext();
         public ActionResult Index()
         {
             return View();
@@ -19,7 +17,7 @@ namespace FuNDs.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return View(db.FundRaisers.FirstOrDefault(x => x.FundRaisersId == 8));
+            return View();
         }
 
         public ActionResult Contact()
