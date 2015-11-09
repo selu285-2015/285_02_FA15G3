@@ -19,11 +19,6 @@ using Facebook;
 //using TweetSharp;
 using Microsoft.AspNet.Identity;
 
-using System.Web.UI.WebControls;
-
-
-
-
 namespace FuNDs.Controllers
 {
     public class FundRaisersController : Controller
@@ -62,23 +57,22 @@ namespace FuNDs.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FundRaisersId,FirstName,LastName,Email,Password,ConfirmPassword,verificationToken,verified")] FundRaisers fundRaisers)
+        public ActionResult Create([Bind(Include = "FundRaisersId,FirstName,LastName,Email,Password,ConfirmPassword,verificationToken,verified")] FundRaisers FundRaisers)
         {
 
             if (ModelState.IsValid)
             {
 
-                var hashedPassword = Crypto.HashPassword(fundRaisers.Password);
-                fundRaisers.Password = hashedPassword;
-                fundRaisers.ConfirmPassword = hashedPassword;
-                db.FundRaisers.Add(fundRaisers);
-                fundRaisers.verified = false;
-                fundRaisers.verificationToken = Guid.NewGuid().ToString();
+                var hashedPassword = Crypto.HashPassword(FundRaisers.Password);
+                FundRaisers.Password = hashedPassword;
+                FundRaisers.ConfirmPassword = hashedPassword;
+                db.FundRaisers.Add(FundRaisers);
+                FundRaisers.verified = false;
+                FundRaisers.verificationToken = Guid.NewGuid().ToString();
 
                 db.SaveChanges();
-                HttpContext.Session.Add("fundRaiser", fundRaisers);
                 //  
-                this.confirmationEmailSend(fundRaisers.Email, fundRaisers.verificationToken);
+                this.confirmationEmailSend(FundRaisers.Email, FundRaisers.verificationToken);
                 return RedirectToAction("checkEmail");
 
                 //   HttpContext.Session.Add("fundRaiser", FundRaisers);
@@ -89,7 +83,7 @@ namespace FuNDs.Controllers
             {
 
 
-                return View("fundRaisers");
+                return View("FundRaisers");
             }
         }
 
@@ -159,7 +153,6 @@ namespace FuNDs.Controllers
 
         public ActionResult MyProfile()
         {
-          // return RedirectToAction("", "Home")
             return View();
         }
 
@@ -401,8 +394,6 @@ namespace FuNDs.Controllers
             }
         }
 
-     
-
         public ActionResult Facebook()
         {
             var fb = new FacebookClient();
@@ -483,35 +474,72 @@ namespace FuNDs.Controllers
 
         public ActionResult ChangePicture()
         {
-            return View();
+            return View("ChangePicture");
         }
+
         [HttpPost]
         public ActionResult ChangePicture(HttpPostedFileBase file, string id)
         {
+            //  var user = HttpContext.Current.User.Identity.GetUserName();
             string emailAddress = User.Identity.GetUserName();
             var user = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
-            
+
+            //  var user = .FindByName(id);
             if (file != null && file.ContentLength > 0 && user != null)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                fileName = fileName.Replace("(", "me");
-                fileName = fileName.Replace(")", "me");
-                fileName = fileName.Replace(" ", "");
-
-                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                var path = Path.Combine(Server.MapPath("~Content/Images"), fileName);
                 file.SaveAs(path);
-                user.Image = "/Images/" + fileName;
+                //   user.Image = "\\Images\\" + fileName;
+                //user.Image = "https://az213233.vo.msecnd.net/Content/4.3.00298.3.140421-1904/Images/QS_database.png";
+
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
-               // return View((object)path);
+                // db.Update(user);
             }
-            return RedirectToAction("Index","Home");
 
-          //  return RedirectToAction(");
+            return RedirectToAction("Index");
         }
-        
 
-    public ActionResult ForgotPassword() {
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase photo)
+        {
+            //string path = @"../Content/profileImage";
+
+            if (photo != null && photo.ContentLength > 0)
+            {
+                var FileName = Guid.NewGuid();
+
+                var path = System.IO.Path.Combine(Server.MapPath("~/Content/profileImage/"),
+                                        FileName.ToString() + ".pdf");
+                photo.SaveAs(path);
+                photo.SaveAs(path + photo.FileName);
+
+                var user = (FundRaisers)HttpContext.Session["fundRaiser"];
+
+                //   user.Image = path;
+
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+
+                return RedirectToAction("UploadImage");
+
+            }
+            else if (photo == null)
+            {
+                TempData["tempMessage"] =
+                        "Please add a picture before uploading";
+                return RedirectToAction("UploadImage");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+        public ActionResult ForgotPassword() {
 
             return View();
 
@@ -533,6 +561,9 @@ namespace FuNDs.Controllers
             mail.To.Add(model.Email);
             mail.From = new MailAddress("Convergent.origin@gmail.com");
             mail.Subject = "Welcome to Convergent!";
+
+
+
             mail.Body = "Hello there! Thank you for your interest in convergent. Please click on the link below to verify your account <a href =\"" + callbackUrl + "\">here </a>";
             mail.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
