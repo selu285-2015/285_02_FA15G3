@@ -1,79 +1,321 @@
-﻿@*@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class ="container ">
-    <section class="promo section section-on-bg">
-        <div class="container text-center">
-            <h2 class="title">Let us help you raise fund for a good cause <br />and initiate your step towards the betterment of our community!</h2>
-            <p class="intro">Convergent is a web-app that provides you <br /> a digital platform for crowdfunding. </p>
-           
-
-        </div>
-    </section>
-   
-</div>
-<style>
-
-</style>*@
-
+﻿
 @{
     ViewBag.Title = "Home Page";
 }
 <section>
-    <div class="slide">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="a"></li>
-                <li data-target="#myCarousel" data-slide-to="1" class="a"></li>
-                <li data-target="#myCarousel" data-slide-to="2" class="a"></li>
-                <li data-target="#myCarousel" data-slide-to="3" class="a"></li>
-            </ol>
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="button" style="margin-top: -1%;">
-                <div class="item active">
-                    <div class="ctn" style="margin-top:0px;">
-                        <img src="~/Content/Images/logo.jpg" alt="photo" height="626" width="1349">
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
+            <div class="para-text">
+            <h2 class="title"style="background-color:transparent;">Let us help you raise fund for a good cause <br />and initiate your step towards the betterment of our community!</h2>
+            <p class="intro"style="background-color:transparent;">Convergent is a web-app that provides you <br /> a digital platform for crowdfunding. </p>
+                <button class="btn-lg">@Html.ActionLink("Get Started", "Create", "Campaigns")</button>
+            </div>
+       
+    <section class="container " id="gallery">
+        <div><h3><I>Image Gallery of Our Fundraiser && Donors</I></h3></div>
+      <div class="row" id="Row">
+         @*-----picture1----*@
+            <div class="col-sm-offset-4 col-sm-2" id="flip-container1">
+                <div class="picture">
+            <div class="front">
+            <img src="http://maxcdn.thedesigninspiration.com/wp-content/uploads/2012/11/Wallpaper-l-004.jpg" alt="airplane" class="img1" height="350" width="350">
+            <span class="caption">#Pemba Hyolmo</span>
                 </div>
-                <div class="item">
-                    <div class="ctn">
-                        <img src="http://m.c.lnkd.licdn.com/mpr/mpr/AAEAAQAAAAAAAAPLAAAAJGNkYWM4MzM5LWRlZDgtNDVmOC1hODNkLWUwODE0NTlmMWE5Yw.jpg" alt="Chania" height="626" width="1349">
-                        <div class="carousel-caption">
-                        </div>
-                    </div>
+            <div class="back">
+                <p class="pic_title"><strong>Highest'$'Donor</strong>
+                <span class="text-right">
+                    - By #Fundraiser</span>
+                    </p>    
+                <br><br>
+                <p class=" pic_source">
+                    <span>
+                        About FundRaiser
+                    </span>
+                    </p>
                 </div>
-                <div class="item">
-                    <div class="ctn">
-                        <img src="http://p1cdn4static.sharpschool.com/UserFiles/Servers/Server_736171/Image/Clip%20Art/fundraising.jpg" alt="Flower" height="626" width="1349">
-                        <div class="carousel-caption">
-                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="ctn">
-                        <img src="http://www.startupguys.net/wp-content/uploads/2015/02/best-crowd-funding-websites.jpg" alt="Flower" height="626" width="1349">
-                        <div class="carousel-caption">
-                        </div>
+            </div>
+            
+        @*----------picture2------------*@
+        
+            <div class=" col-sm-2" id="flip-container2">
+                <div class="picture">
+                    <div class="front">
+                        <img src="https://s-media-cache-ak0.pinimg.com/originals/bd/64/f0/bd64f02085c1cef93f41c31e21c03ca2.png" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Yoni Kumar</span>
+                       
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+     
+               @*-------------picture3---------*@
+        
+            <div class="col-sm-2" id="flip-container3">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://chat.ghalay.com/15.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Chiku Sherchan</span>
+                        
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+       
+                @*-----picture4-----------*@
+           
+        <div class="col-sm-2" id="flip-container4">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://www.hdwallpapersnew.net/wp-content/uploads/2014/05/flying-parrot-bird-wallpaper-of-hgih-resolution.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Muttwoi Kumari</span>
+                        
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+        <div class="row" id="Row">
+            <div class="col-sm-offset-4 col-sm-2" id="flip-container1">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://maxcdn.thedesigninspiration.com/wp-content/uploads/2012/11/Wallpaper-l-004.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Pemba Hyolmo</span>
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            @*----------picture2------------*@
+
+            <div class=" col-sm-2" id="flip-container2">
+                <div class="picture">
+                    <div class="front">
+                        <img src="https://s-media-cache-ak0.pinimg.com/originals/bd/64/f0/bd64f02085c1cef93f41c31e21c03ca2.png" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Yoni Kumar</span>
+
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            @*-------------picture3---------*@
+
+            <div class="col-sm-2" id="flip-container3">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://chat.ghalay.com/15.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Chiku Sherchan</span>
+
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            @*-----picture4-----------*@
+
+            <div class="col-sm-2" id="flip-container4">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://www.hdwallpapersnew.net/wp-content/uploads/2014/05/flying-parrot-bird-wallpaper-of-hgih-resolution.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Muttwoi Kumari</span>
+
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="text">
-        <h2 class="title">Let us help you raise fund for a good cause <br />and initiate your step towards the betterment of our community!</h2>
-        <p class="intro">Convergent is a web-app that provides you <br /> a digital platform for crowdfunding. </p>
-    </div>
+        <div class="row" id="Row">
+            @*-----picture1----*@
+            <div class="col-sm-offset-4 col-sm-2" id="flip-container1">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://www.fondobook.com/wp-content/uploads/2012/11/fondo_hd_169_loro_colores.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Pemba Hyolmo</span>
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            @*----------picture2------------*@
+
+            <div class=" col-sm-2" id="flip-container2">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://mmpic.fardblog.com/upload/mmpic/download/Cartoon/batman_arkham_origins_12-wallpaper-1600x900.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Yoni Kumar</span>
+
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            @*-------------picture3---------*@
+
+            <div class="col-sm-2" id="flip-container3">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://4.bp.blogspot.com/-RD2XN9LykXg/UjPmqdTg7lI/AAAAAAAAAZA/EG05GPjHKZM/s1600/Free+download+image.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Chiku Sherchan</span>
+
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            @*-----picture4-----------*@
+
+            <div class="col-sm-2" id="flip-container4">
+                <div class="picture">
+                    <div class="front">
+                        <img src="http://images4.alphacoders.com/206/206268.jpg" alt="airplane" class="img1" height="350" width="350">
+                        <span class="caption">#Muttwoi Kumari</span>
+
+                    </div>
+                    <div class="back">
+                        <p class="pic_title">
+                            <strong>Highest'$'Donor</strong>
+                            <span class="text-right">
+                                - By #Fundraiser
+                            </span>
+                        </p>
+                        <br><br>
+                        <p class=" pic_source">
+                            <span>
+                                About FundRaiser
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </section>

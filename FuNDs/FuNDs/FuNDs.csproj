@@ -208,13 +208,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511010600227_temp.cs" />
-    <Compile Include="Migrations\201511010600227_temp.Designer.cs">
-      <DependentUpon>201511010600227_temp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511011749547_temp1.cs" />
-    <Compile Include="Migrations\201511011749547_temp1.Designer.cs">
-      <DependentUpon>201511011749547_temp1.cs</DependentUpon>
+    <Compile Include="Migrations\201511090455238_temp.cs" />
+    <Compile Include="Migrations\201511090455238_temp.Designer.cs">
+      <DependentUpon>201511090455238_temp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -230,9 +226,17 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\1e3a5309-f8b4-44dc-b825-2e25eac346ee.pdfScreenshot %2815%29.png" />
+    <Content Include="Content\Images\363833ee-7fe4-4ea2-ae84-c74b4233a438.pdfScreenshot %2820%29.png" />
+    <Content Include="Content\Images\39f1dadc-83fd-4162-923d-80bcbaddc74b.pdfScreenshot %2820%29.png" />
+    <Content Include="Content\Images\5932f7d6-1190-457e-8d82-bcd22396fd41.pdfScreenshot %2820%29.png" />
+    <Content Include="Content\Images\b7900346-1763-423d-b988-858bf9f106e0.pdfScreenshot %2820%29.png" />
     <Content Include="Content\Images\Convergent.png" />
     <Content Include="Content\Images\Aabishkar.jpg" />
+    <Content Include="Content\Images\f05961dc-fcd8-4b78-b8e2-336220077c08.pdfScreenshot %2816%29.png" />
+    <Content Include="Content\Images\f3b85c79-c92c-4432-acdf-f1ee3e87dd90.pdfScreenshot %2820%29.png" />
     <Content Include="Content\Images\logo.jpg" />
+    <Content Include="Content\Images\Untitled-1.png" />
     <Content Include="Content\Images\Zibbon.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -242,6 +246,13 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Images\pankaj.png" />
     <Content Include="Content\Images\Aayush.png" />
+    <Content Include="Content\Images\1e3a5309-f8b4-44dc-b825-2e25eac346ee.pdf" />
+    <Content Include="Content\Images\363833ee-7fe4-4ea2-ae84-c74b4233a438.pdf" />
+    <Content Include="Content\Images\39f1dadc-83fd-4162-923d-80bcbaddc74b.pdf" />
+    <Content Include="Content\Images\5932f7d6-1190-457e-8d82-bcd22396fd41.pdf" />
+    <Content Include="Content\Images\b7900346-1763-423d-b988-858bf9f106e0.pdf" />
+    <Content Include="Content\Images\f05961dc-fcd8-4b78-b8e2-336220077c08.pdf" />
+    <Content Include="Content\Images\f3b85c79-c92c-4432-acdf-f1ee3e87dd90.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -331,11 +342,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511010600227_temp.resx">
-      <DependentUpon>201511010600227_temp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511011749547_temp1.resx">
-      <DependentUpon>201511011749547_temp1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511090455238_temp.resx">
+      <DependentUpon>201511090455238_temp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
