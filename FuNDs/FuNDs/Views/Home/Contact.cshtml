@@ -1,139 +1,48 @@
 ﻿@{
     ViewBag.Title = "Contact Us";
 }
-<!DOCTYPE html>
 
-<html>
 
-<head>
-    <title>CSS Contact Form</title>
+<section id="contact" class="container">
 
-    <meta charset="utf-8" />
 
-</head>
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Contact Form</legend>
 
-<body>
-    <div class="body-content">
-    <h2>Contact Us</h2>
-
-    <form class="form">
-        <div class="input">
-        <p class="name">
-            <input type="text" name="name" id="name" placeholder="John Burris" />
-            <label for="name">Name</label>
-        </p>
-
-        <p class="email">
-            <input type="text" name="email" id="email" placeholder="mail@example.com" />
-            <label for="email">Email</label>
-        </p>
-
-        <p class="web">
-            <input type="text" name="add" id="add" placeholder="Address" />
-            <label for="add">Address</label>
-        </p>
+            <div class="bs-callout bs-callout-warning">
+                <h4>Please fill the form below</h4>
+                <p>We love to hear your feedback.</p>
             </div>
-        <p class="text">
-            <label for="message" class="message">Message</label>
-            <textarea name="text" placeholder="Write something to us" > </textarea>
-            
-        </p>
 
-        <p class="submit">
-            <input type="submit" value="Send" />
-        </p>
+            <div class="form-group">
+                <label for="inputName" class="col-lg-2 control-label">Name</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputName" placeholder="eg: John Doe">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="eg: you@example.com">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message" class="col-lg-2 control-label">Message</label>
+                <div class="col-lg-10">
+                    <textarea class="form-control" rows="4" id="message" placeholder="Please enter your message here..."></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
     </form>
-       </div>
-</body>
-
-</html>
-<style>
-    
-.body-content {
-	padding: 20px 150px;
-	font-size: 13px;
-	font-style: normal;
-    margin-top:0px;
-    height:930px;
-}
-
-h2 {
-	margin-top: 0px;
-    margin-left: 22%;
-    margin-bottom: 90px;
-    color: white;
-}
-label{
-    color:white;
-}
-.form{
-    background-color:#288feb;
-        margin-top: -60px;
-    margin-left: 155px;
-    width: 400px;
-}
-p{
-        margin: 15px 0 0px;
-}
-input, textarea {
-	padding: 10px;
-	border: 1px solid #E5E5E5;
-	width: 200px;
-	color: #999999;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;		
-}
-.message{
-    margin-top:5px;
-    margin-left:-1px;
-    color:white;
-}
-textarea {
-	width: 400px;
-	height: 150px;
-	max-width: 400px;
-	line-height: 18px;
-    
-}
-.submit input{
-    margin-left: 155px;
-        margin-top: -1px;
-}
-.text{
-       background-color: #288feb;
-    color: white;
-    /* clear: both; */
-    margin-top: 0px;
-    margin-left: 0px;
-    padding: 0px 0px;
-    height: 4%;
-    width: 405.141px;
-}
-
-input:hover, textarea:hover,
-input:focus, textarea:focus {
-	border-color:#C9C9C9;
-	box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
-	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
-	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;	
-}
-
-.form label {
-	margin-left: 0px;
-	color: white;
-}
 
 
 
-.submit input {
-	width: 100px; 
-	height: 40px;
-	background-color: #28cb75; 
-	color: #FFF;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;		
-}
-
-</style>
+</section>

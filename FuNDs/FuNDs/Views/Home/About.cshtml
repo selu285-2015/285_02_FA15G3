@@ -1,25 +1,15 @@
-﻿
-
-
-
-
-
-
-@{
+﻿@{
     ViewBag.Title = "About";
 }
 
-<div class="contact-section">
-    <p style="text-align:center;
-    font-size: 30px;
-    height: 5px;
-    margin-bottom: 65px; margin-top: 0px; color:white; }">About</p>
+<section class="container" id="about">
+    <h3 class="text-center">TEAM ORIGIN</h3>
+    <hr />
     
     <div class="row">
         <div class="col-sm-3">
             <div class="team-member">
-                @*<img src=@Url.Content("~/Content/images/Aabishkar.jpg") class="img-responsive " alt="Image">*@
-                <img src=imagePath class="img-responsive " alt="Image">
+                <img src=@Url.Content("~/Content/images/Aabishkar.jpg") class="thumbnail img-responsive " alt="Image">
                 <a href="https://twitter.com/aabishkart" target="blank">
                     <h4>Aabishkar Timalsina</h4>
                 </a>
@@ -28,7 +18,7 @@
         </div>
         <div class="col-sm-3">
             <div class="team-member">
-                <img src=@Url.Content("~/Content/images/Aayush.png") class="img-responsive " alt="Image">
+                <img src=@Url.Content("~/Content/images/Aayush.png") class="thumbnail img-responsive " alt="Image">
                 <a href="https://www.facebook.com/aayush.dahal.92?fref=ts" target="blank">
                     <h4>Aayush Dahal</h4>
                 </a>
@@ -37,7 +27,7 @@
         </div>
         <div class="col-sm-3">
             <div class="team-member">
-                <img src=@Url.Content("~/Content/images/Zibbon.png") class="img-responsive " alt="Image">
+                <img src=@Url.Content("~/Content/images/Zibbon.png") class="thumbnail img-responsive " alt="Image">
                 <a href="https://www.facebook.com/zibbon.khadka?fref=ts" target="blank">
                     <h4>Jeetendra Khadka</h4>
                 </a>
@@ -46,7 +36,7 @@
         </div>
         <div class="col-sm-3">
             <div class="team-member">
-                <img src=@Url.Content("~/Content/images/Pankaj.png") class="img-responsive " alt="Image">
+                <img src=@Url.Content("~/Content/images/Pankaj.png") class="thumbnail img-responsive " alt="Image">
                 <a href="https://www.facebook.com/pankaj.sherchan?ref=br_rs" target="blank">
                     <h4>Pankaj Sherchan</h4>
                 </a>
@@ -54,191 +44,10 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 <style>
-    .story-container-inner {
-        padding: 0px 0px;
-        margin: 0px 0px;
-    }
-
-    .belife {
-        padding: 0px 0px;
-        background-color: white;
-        margin: 0px 0px;
-    }
-
-    .contact-section {
-        padding: 0px 0px;
-        margin-bottom: 0px;
-        margin-left: 0px !important;
-        margin-top: 0px;
-        height: 940px;
-        background-color: #288feb;
-    }
-
-    .row {
-        width: 1349px;
-        margin-right: -15px;
-        margin-left: -1px;
-    }
-
-    .col-sm-4 {
-        width: 33.33333333%;
-    }
-
-    .team-member {
-        margin-bottom: 50px;
-        text-align: center;
-    }
-
-        .team-member img {
-            margin: 0 auto;
-            height: 355px;
-        }
-
-    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
-        display: block;
-        max-width: 100%;
+    img.thumbnail{
+        width: 100%;
         height: auto;
     }
-
-    img {
-        vertical-align: middle;
-                  
-    }
-    .img-responsive{
-        border-radius:95%;
-        border-style:ridge;
-    }
-
-    .team-member h4 {
-        margin-top: 25px;
-        margin-bottom: 0;
-        text-transform: none;
-     color:white;
-     font-weight:bold;
-    }
-
-    .text-muted {
-        color: white;
-    }
-    
-
-    p {
-        font-size: 14px;
-        line-height: 1.75;
-    }
-
-    p {
-        display: block;
-        -webkit-margin-before: 1em;
-        -webkit-margin-after: 1em;
-        -webkit-margin-start: 0px;
-        -webkit-margin-end: 0px;
-    }
-
-    .story-section .story-container-inner {
-        max-width: 900px;
-        margin: 0 auto;
-        background: #fff;
-        padding: 30px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        -ms-border-radius: 4px;
-        -o-border-radius: 4px;
-        border-radius: 4px;
-        -moz-background-clip: padding;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        text-align: left;
-    }
-
-    * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    user agent stylesheetdiv {
-        display: block;
-    }
-
-    .story-section .about {
-        padding: 30px;
-    }
-
-    * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    user agent stylesheetdiv {
-        display: block;
-    }
-
-    .belife {
-        padding: 0px 30px;
-        font-family: inherit;
-        font-size: 30px;
-        margin: 0px 10px;
-    }
-
-    blockquote {
-        display: block;
-        -webkit-margin-before: 1em;
-        -webkit-margin-after: 1em;
-        -webkit-margin-start: 40px;
-        -webkit-margin-end: 40px;
-    }
-
-    .story-section .title {
-        font-size: 36px;
-        margin-bottom: 60px;
-        margin-top: 0;
-        color: #fff;
-        font-weight: 300;
-    }
-
-    .section-on-bg .title {
-        color: #fff;
-    }
-
-    .container {
-        padding-right: 15px;
-        padding-left: 0px;
-        margin-right: auto;
-        margin-left: 0px;
-        margin: 0px 0px;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .h2, h2 {
-        font-size: 30px;
-    }
-
-    .h1, .h2, .h3, h1, h2, h3 {
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-
-    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-        font-family: inherit;
-        font-weight: 500;
-        line-height: 1.1;
-        color: inherit;
-    }
-
-    * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
 </style>
-
-@*Tweets med svar från Aabishkar Timalsina (@AabishkarT) | Twitter
-Senaste tweets och svar från Aabishkar Timalsina (@AabishkarT). maybe a student? #golions, SLU. USA
-twitter.com*@

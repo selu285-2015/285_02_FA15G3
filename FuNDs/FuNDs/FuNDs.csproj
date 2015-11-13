@@ -127,7 +127,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -185,7 +185,7 @@
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
-      <HintPath>..\packages\TweetSharp-Unofficial.2.3.1.2\lib\4.0\TweetSharp.dll</HintPath>
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -208,9 +208,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511090455238_temp.cs" />
-    <Compile Include="Migrations\201511090455238_temp.Designer.cs">
-      <DependentUpon>201511090455238_temp.cs</DependentUpon>
+    <Compile Include="Migrations\201511110450024_temp.cs" />
+    <Compile Include="Migrations\201511110450024_temp.Designer.cs">
+      <DependentUpon>201511110450024_temp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -224,8 +224,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Content\Images\1e3a5309-f8b4-44dc-b825-2e25eac346ee.pdfScreenshot %2815%29.png" />
     <Content Include="Content\Images\363833ee-7fe4-4ea2-ae84-c74b4233a438.pdfScreenshot %2820%29.png" />
     <Content Include="Content\Images\39f1dadc-83fd-4162-923d-80bcbaddc74b.pdfScreenshot %2820%29.png" />
@@ -242,8 +245,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Images\pankaj.png" />
     <Content Include="Content\Images\Aayush.png" />
     <Content Include="Content\Images\1e3a5309-f8b4-44dc-b825-2e25eac346ee.pdf" />
@@ -253,7 +254,12 @@
     <Content Include="Content\Images\b7900346-1763-423d-b988-858bf9f106e0.pdf" />
     <Content Include="Content\Images\f05961dc-fcd8-4b78-b8e2-336220077c08.pdf" />
     <Content Include="Content\Images\f3b85c79-c92c-4432-acdf-f1ee3e87dd90.pdf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -332,18 +338,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511090455238_temp.resx">
-      <DependentUpon>201511090455238_temp.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511110450024_temp.resx">
+      <DependentUpon>201511110450024_temp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,7 +16,7 @@ using System.Net.Mail;
 using System.Configuration;
 using System.Threading.Tasks;
 using Facebook;
-//using TweetSharp;
+using TweetSharp;
 using Microsoft.AspNet.Identity;
 
 namespace FuNDs.Controllers
@@ -438,43 +438,43 @@ namespace FuNDs.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        // LOGIN WITH TWITTER
         //LOGIN WITH TWITTER
-        //LOGIN WITH TWITTER
-        //public ActionResult Twitter()
-        //{
-        //    // Step 1 - Retrieve an OAuth Request Token
-        //    TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
+        public ActionResult Twitter()
+        {
+            // Step 1 - Retrieve an OAuth Request Token
+            TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
 
-        //    var url = Url.Action("TwitterCallback", "FundRaisers", null, "http");
-        //    // This is the registered callback URL
-        //    OAuthRequestToken requestToken = service.GetRequestToken(url);
+            var url = Url.Action("TwitterCallback", "FundRaisers", null, "http");
+            // This is the registered callback URL
+            OAuthRequestToken requestToken = service.GetRequestToken(url);
 
-        //    // Step 2 - Redirect to the OAuth Authorization URL
-        //    Uri uri = service.GetAuthorizationUri(requestToken);
-        //    return new RedirectResult(uri.ToString(), false /*permanent*/);
-        //}
-        //// This URL is registered as the application's callback at http://dev.twitter.com
-        //public ActionResult TwitterCallback(string oauth_token, string oauth_verifier)
-        //{
-        //    var requestToken = new OAuthRequestToken { Token = oauth_token };
+            // Step 2 - Redirect to the OAuth Authorization URL
+            Uri uri = service.GetAuthorizationUri(requestToken);
+            return new RedirectResult(uri.ToString(), false /*permanent*/);
+        }
+        // This URL is registered as the application's callback at http://dev.twitter.com
+        public ActionResult TwitterCallback(string oauth_token, string oauth_verifier)
+        {
+            var requestToken = new OAuthRequestToken { Token = oauth_token };
 
-        //    // Step 3 - Exchange the Request Token for an Access Token
-        //    TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
-        //    OAuthAccessToken accessToken = service.GetAccessToken(requestToken, oauth_verifier);
+            // Step 3 - Exchange the Request Token for an Access Token
+            TwitterService service = new TwitterService("VDmlMeOXpRbdDK5iXyCcHAGY3", "S7ngKhtW8uskHGfIgNBg9qKdY6fRzgWHwYZ0Lvct4ICezU1lhx");
+            OAuthAccessToken accessToken = service.GetAccessToken(requestToken, oauth_verifier);
 
-        //    // Step 4 - User authenticates using the Access Token
-        //    service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
-        //    TwitterUser user = service.VerifyCredentials(new VerifyCredentialsOptions());
+            // Step 4 - User authenticates using the Access Token
+            service.AuthenticateWith(accessToken.Token, accessToken.TokenSecret);
+            TwitterUser user = service.VerifyCredentials(new VerifyCredentialsOptions());
 
-        //    FormsAuthentication.SetAuthCookie(user.ScreenName, false);
+            FormsAuthentication.SetAuthCookie(user.ScreenName, false);
 
-        //    return RedirectToAction("Index", "Home");
-        //}
+            return RedirectToAction("Index", "Home");
+        }
 
 
         public ActionResult ChangePicture()
         {
-            return View("ChangePicture");
+            return View();
         }
 
         [HttpPost]

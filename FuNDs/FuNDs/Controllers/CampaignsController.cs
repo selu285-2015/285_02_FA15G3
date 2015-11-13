@@ -101,8 +101,8 @@ namespace FuNDs.Controllers
                         campaigns = campaigns.OrderBy(s => s.StartingDate);
                         break;
                     case "Date_desc":
-                       campaigns = campaigns.OrderByDescending(s => s.StartingDate);
-                       break;
+                        campaigns = campaigns.OrderByDescending(s => s.StartingDate);
+                        break;
                     default:
                         campaigns = campaigns.OrderBy(s => s.CampaignTitle);
                         break;

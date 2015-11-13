@@ -10,21 +10,21 @@
 
 
 
-        <div class="dropdown">
-            <button class="btn" type="button" data-toggle="dropdown">@Html.ActionLink(HttpContext.Current.User.Identity.GetUserName(), "Home")</button>
+        <li class="dropdown">
+            <a data-toggle="dropdown">
+                @HttpContext.Current.User.Identity.GetUserName()
+
+                <span class="caret"></span>
+            </a>
             
-            <span class="caret" ></span>
               
             
                                             <ul class="dropdown-menu" role="menu">
                                                 <li class="dropdown-list">@Html.ActionLink("My Profile", "MyProfile", "FundRaisers") </li>
                                                 <li class="dropdown-list">@Html.ActionLink("My Campaigns", "Index", "Campaigns") </li>
                                                 <li class="dropdown-list">@Html.ActionLink("Sign Out", "Logout", "FundRaisers") </li>
-                                                @*<li class="dropdown-list"><a  tabindex="-1" class="dropdown-anchor" href="/FundRaisers/MyProfile.cshtml">My Profile</a></li>
-                                                    <li class="dropdown-list"><a  tabindex="-1" class="dropdown-anchor" href="~/Views/Campaigns/Index.cshtml">My Campaigns</a></li>
-                                                    <li class="dropdown-list" ><a  tabindex="-1" class="dropdown-anchor" href="~/Views/Shared/Lockout.cshtml">Sign Out</a></li>*@
-                                            </ul>
-                                </div>
+                                          </ul>
+                                </li>
 
 
         @*<li class="pull-right">@Html.ActionLink(HttpContext.Current.User.Identity.GetUserName(), "Home")</li>
