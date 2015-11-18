@@ -204,7 +204,6 @@ C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPage
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPages.Deployment.xml
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPages.Razor.xml
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csprojResolveAssemblyReference.cache
-C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.dll
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.pdb
 C:\Users\Pankaj\Desktop\cmps285project\FuNDs\FuNDs\bin\roslyn\csc.exe
@@ -280,8 +279,6 @@ C:\Users\Pankaj\Desktop\cmps285project\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.Genera
 C:\Users\Pankaj\Desktop\cmps285project\FuNDs\FuNDs\bin\RazorEngine.dll
 C:\Users\Pankaj\Desktop\cmps285project\FuNDs\FuNDs\bin\RazorEngine.pdb
 C:\Users\Pankaj\Desktop\cmps285project\FuNDs\FuNDs\bin\RazorEngine.xml
-C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
-C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Facebook.dll
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Hammock.ClientProfile.dll
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.dll
@@ -507,3 +504,5 @@ C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Mi
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp2.resources
+C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
+C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
