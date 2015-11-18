@@ -24,7 +24,7 @@ namespace FuNDs.Controllers
 
             var user = db.FundRaisers.FirstOrDefault(s => s.FundRaisersId == x);
 
-            if (user != null)
+            if (user != null && user.Campaigns!= null)
             {
                 List<Campaign> campaignlist = new List<Campaign>();
                 foreach (var campaign in user.Campaigns)
@@ -42,33 +42,7 @@ namespace FuNDs.Controllers
 
         }
 
-
-
-        // GET: Campaigns
-        //public ActionResult Index()
-        //{
-        //    int x = Convert.ToInt32(Session["userId"]);
-
-
-        //    var user = db.FundRaisers.FirstOrDefault(s => s.FundRaisersId == x);
-
-        //    if (user != null)
-        //    {
-        //        List<Campaign> campaignlist = new List<Campaign>();
-        //        foreach (var campaign in user.Campaigns)
-        //        {
-        //            campaignlist.Add(campaign);
-        //        }
-
-        //        return View(campaignlist.ToList());
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError("doesUserExist", "Email Not verified. Please check your email confirmation");
-        //        return View("Index", "Home");
-        //    }
-
-        //}
+        
 
         public ActionResult AllCampaigns(string sortOrder, string searchString)
         {
@@ -97,15 +71,15 @@ namespace FuNDs.Controllers
                     case "Name_desc":
                         campaigns = campaigns.OrderByDescending(s => s.CampaignTitle);
                         break;
-                    case "Date":
-                        campaigns = campaigns.OrderBy(s => s.StartingDate);
-                        break;
-                    case "Date_desc":
-                        campaigns = campaigns.OrderByDescending(s => s.StartingDate);
-                        break;
-                    default:
-                        campaigns = campaigns.OrderBy(s => s.CampaignTitle);
-                        break;
+                    //case "Date":
+                    //    campaigns = campaigns.OrderBy(s => s.StartingDate);
+                    //    break;
+                    //case "Date_desc":
+                    //    campaigns = campaigns.OrderByDescending(s => s.StartingDate);
+                    //    break;
+                    //default:
+                    //    campaigns = campaigns.OrderBy(s => s.CampaignTitle);
+                    //    break;
                 }
                 return View("AllCampaigns", campaigns.ToList());
             }

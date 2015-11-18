@@ -505,3 +505,5 @@ C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Newtonsoft.Jso
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.pdb
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp2.resources

@@ -14,6 +14,8 @@
             <a data-toggle="dropdown">
                 @HttpContext.Current.User.Identity.GetUserName()
 
+
+              
                 <span class="caret"></span>
             </a>
             
@@ -22,9 +24,11 @@
                                             <ul class="dropdown-menu" role="menu">
                                                 <li class="dropdown-list">@Html.ActionLink("My Profile", "MyProfile", "FundRaisers") </li>
                                                 <li class="dropdown-list">@Html.ActionLink("My Campaigns", "Index", "Campaigns") </li>
+                                                <li class="dropdown-list">@Html.ActionLink("My Setting", "UserSettings", "FundRaisers") </li>
                                                 <li class="dropdown-list">@Html.ActionLink("Sign Out", "Logout", "FundRaisers") </li>
                                           </ul>
                                 </li>
+
 
 
         @*<li class="pull-right">@Html.ActionLink(HttpContext.Current.User.Identity.GetUserName(), "Home")</li>
@@ -37,6 +41,9 @@
 else
 {
     @*<ul class="home">*@
+
+
+    
     <li class="pull-right">@Html.ActionLink("Sign In", "SignIn", "FundRaisers")</li>
     <li class="pull-right">@Html.ActionLink("Sign Up", "Create", "FundRaisers")</li>
    

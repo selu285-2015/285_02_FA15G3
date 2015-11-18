@@ -352,6 +352,10 @@ namespace FuNDs.Controllers
             var currentUser = db.FundRaisers.FirstOrDefault(u => u.Email == emailAddress);
 
             // Update the currentUser's respective fields.
+            string newPassword = Crypto.HashPassword(updatedUser.Password);
+            currentUser.Password = newPassword;
+            currentUser.ConfirmPassword = newPassword;
+
             currentUser.FirstName = updatedUser.FirstName;
             currentUser.LastName = updatedUser.LastName;
 
@@ -560,11 +564,11 @@ namespace FuNDs.Controllers
             MailMessage mail = new MailMessage();
             mail.To.Add(model.Email);
             mail.From = new MailAddress("Convergent.origin@gmail.com");
-            mail.Subject = "Welcome to Convergent!";
+            mail.Subject = "Change Password";
 
 
 
-            mail.Body = "Hello there! Thank you for your interest in convergent. Please click on the link below to verify your account <a href =\"" + callbackUrl + "\">here </a>";
+            mail.Body = "Hello there!" + "<br/>" + "Please click on the link below to reset your password... " + "<br/>"  + callbackUrl + "<br/>" + "<br/>" + "<br/>" + "<br/>" + "<br/>" + "If this is not you, please send us an email at convergent.origin@gmail.com " + "<br/>" + "<br/>"+ "<br/>"+"Sincerely,"+ "<br/>"+"Team Origin";
             mail.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
