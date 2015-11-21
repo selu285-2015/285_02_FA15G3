@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -9,15 +7,11 @@ using System.Web.Mvc;
 using FuNDs.Models;
 using System.Web.Helpers;
 using System.IO;
-using System.Web.Script.Serialization;
-using System.Web.UI;
 using System.Web.Security;
 using System.Net.Mail;
-using System.Configuration;
-using System.Threading.Tasks;
 using Facebook;
-using TweetSharp;
 using Microsoft.AspNet.Identity;
+using TweetSharp;
 
 namespace FuNDs.Controllers
 {
