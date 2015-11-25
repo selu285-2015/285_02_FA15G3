@@ -23,12 +23,6 @@ namespace FuNDs.Models
         [Column(TypeName = "datetime2")]
         public DateTime? EndingDate { get; set; }
 
-        // public FundRaisers owner { get; set; }
-
-        //[ForeignKey("FundRaisers")]
-        //public int? FundRaisersId { get; set; }
-
-
 
         [Display(Name = "FundRaisers*")]
         [Required(ErrorMessage = "Who is the fundRaiserss")]
@@ -37,5 +31,7 @@ namespace FuNDs.Models
 
 
         public virtual FundRaisers FundRaisers { get; set; }
+
+        public virtual ICollection<Donor> donateAmount { get; set; }
     }
 }

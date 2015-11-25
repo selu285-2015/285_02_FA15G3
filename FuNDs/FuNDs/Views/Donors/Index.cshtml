@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FuNDs.Models.Donor>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.donateAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.donateDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.donateAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.donateDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DonorId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DonorId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DonorId })
+        </td>
+    </tr>
+}
+
+</table>

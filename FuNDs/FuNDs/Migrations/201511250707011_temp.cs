@@ -24,6 +24,19 @@ namespace FuNDs.Migrations
                 .Index(t => t.FundRaisersId);
             
             CreateTable(
+                "dbo.Donors",
+                c => new
+                    {
+                        DonorId = c.Int(nullable: false, identity: true),
+                        donateAmount = c.Double(nullable: false),
+                        donateDate = c.String(),
+                        Campaign_CampaignId = c.Int(),
+                    })
+                .PrimaryKey(t => t.DonorId)
+                .ForeignKey("dbo.Campaigns", t => t.Campaign_CampaignId)
+                .Index(t => t.Campaign_CampaignId);
+            
+            CreateTable(
                 "dbo.FundRaisers",
                 c => new
                     {
@@ -44,8 +57,11 @@ namespace FuNDs.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Campaigns", "FundRaisersId", "dbo.FundRaisers");
+            DropForeignKey("dbo.Donors", "Campaign_CampaignId", "dbo.Campaigns");
+            DropIndex("dbo.Donors", new[] { "Campaign_CampaignId" });
             DropIndex("dbo.Campaigns", new[] { "FundRaisersId" });
             DropTable("dbo.FundRaisers");
+            DropTable("dbo.Donors");
             DropTable("dbo.Campaigns");
         }
     }

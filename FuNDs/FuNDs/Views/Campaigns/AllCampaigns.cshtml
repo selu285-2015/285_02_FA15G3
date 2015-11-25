@@ -22,7 +22,9 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <h4 class="title">
-                                @Html.DisplayFor(modelItem => item.CampaignTitle)
+                                
+                                @Html.ActionLink(item.CampaignTitle, "Create","Donors" ,new { id = item.CampaignId}, null)
+                                @*@Html.DisplayFor(modelItem => item.CampaignTitle)*@
                             </h4>
                         </div>
                         <div class="col-xs-6">

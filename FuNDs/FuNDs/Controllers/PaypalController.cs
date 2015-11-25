@@ -1,22 +1,30 @@
-﻿using PayPal.Api;
+﻿using FuNDs.Models;
+using log4net;
+using PayPal.Api;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FuNDs.Controllers
 {
     public class PaypalController : Controller
     {
+        private FundRaisersDbContext db = new FundRaisersDbContext();
+
         // GET: Paypal1
         public ActionResult Index()
         {
+            
             return View();
         }
 
-        public ActionResult PaymentWithPaypal(string amt)
+        public ActionResult PaymentWithPaypal(string donateAmount)
         {
+
+          //  public ActionResult PaymentWithPaypal(int id) { 
+     // Donor donor = db.Donors.FirstOrDefault(s => s.DonorId ==);
+          //  double amount = donor.donateAmount;
+          //  string amount1 = amount + "";
             //getting the apiContext as earlier
             APIContext apiContext = Configuration.GetAPIContext();
 
@@ -43,7 +51,7 @@ namespace FuNDs.Controllers
                     //CreatePayment function gives us the payment approval url
                     //on which payer is redirected for paypal account payment
 
-                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid, amt);
+                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid, donateAmount);
 
                     //get links returned from paypal in response to Create function call
 
@@ -81,17 +89,17 @@ namespace FuNDs.Controllers
 
                     if (executedPayment.state.ToLower() != "approved")
                     {
-                        return View("FailureView");
+                        return View("Failure");
                     }
                 }
             }
             catch (Exception ex)
             {
                 // Logger.log("Error" + ex.Message);
-                return View("FailureView");
+                return View("Failure");
             }
 
-            return View("SuccessView");
+            return View("Success");
         }
 
         private PayPal.Api.Payment payment;
@@ -105,7 +113,7 @@ namespace FuNDs.Controllers
         // this is new
 
 
-        private Payment CreatePayment(APIContext apiContext, string redirectUrl, string amt)
+        private Payment CreatePayment(APIContext apiContext, string redirectUrl, string donateAmount)
         {
 
             //similar to credit card create itemlist and add item objects to it
@@ -115,7 +123,7 @@ namespace FuNDs.Controllers
             {
                 name = "Item Name",
                 currency = "USD",
-                price = amt,
+                price = donateAmount,
                 quantity = "1",
                 sku = "sku"
             });
@@ -134,14 +142,14 @@ namespace FuNDs.Controllers
             {
                 tax = "0",
                 shipping = "0",
-                subtotal = amt
+                subtotal = donateAmount
             };
 
             // similar as we did for credit card, do here and create amount object
             var amount = new Amount()
             {
                 currency = "USD",
-                total = amt, // Total must be equal to sum of shipping, tax and subtotal.
+                total = donateAmount, // Total must be equal to sum of shipping, tax and subtotal.
                 details = details
             };
 
@@ -157,6 +165,7 @@ namespace FuNDs.Controllers
 
             this.payment = new Payment()
             {
+                
                 intent = "sale",
                 payer = payer,
                 transactions = transactionList,
@@ -231,8 +240,10 @@ namespace FuNDs.Controllers
         //    return this.payment.Create(apiContext);
         //}
 
+      
 
 
+        
         public static class Configuration
         {
             //these variables will store the clientID and clientSecret
@@ -271,6 +282,17 @@ namespace FuNDs.Controllers
             }
         }
 
+
+        public string getAmount(int id)
+        {
+            string id1 = id + "";
+            if (id1 == payment.id)
+            {
+
+                return "dsf";
+            }
+            return "fjasdkkf";
+        }
 
     }
 }

@@ -484,6 +484,7 @@ C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPage
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPages.dll
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPages.Razor.dll
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.dll
+C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\WebGrease.dll
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Antlr3.Runtime.pdb
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\EntityFramework.xml
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\EntityFramework.SqlServer.xml
@@ -518,5 +519,3 @@ C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.dll
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.pdb
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csprojResolveAssemblyReference.cache
-C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources
-C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\WebGrease.dll

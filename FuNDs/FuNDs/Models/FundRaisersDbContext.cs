@@ -16,6 +16,6 @@ namespace FuNDs.Models
 
         public System.Data.Entity.DbSet<FuNDs.Models.Campaign> Campaigns { get; set; }
 
- 
+        public System.Data.Entity.DbSet<FuNDs.Models.Donor> Donors { get; set; }
     }
 }

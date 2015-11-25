@@ -147,6 +147,7 @@ namespace FuNDs.Controllers
         {
             if (ModelState.IsValid)
             {
+                Session["CampaignId"] = campaign.CampaignId;
                 campaign.FundRaisersId = Convert.ToInt32(Session["userId"]);
                 db.Campaigns.Add(campaign);
                 db.SaveChanges();

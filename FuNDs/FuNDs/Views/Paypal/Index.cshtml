@@ -1,4 +1,5 @@
-﻿
+﻿@model FuNDs.Models.Donor
+
 @{
     ViewBag.Title = "Index";
 }
@@ -6,5 +7,9 @@
 <h2>Index</h2>
 
 
+    
+@Html.ActionLink("Pay with Paypal Account", "PaymentWithPaypal", "Paypal", new { Id = 1}, null)
 
-@Html.ActionLink("Pay with Paypal Account", "PaymentWithPaypal", "Paypal", new { amt = "13.05" }, null)
+    
+
+@*@Html.ActionLink("Pay with Paypal Account", "PaymentWithPaypal", "Paypal", new { amt = "13.05" }, null)*@
