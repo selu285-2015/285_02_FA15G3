@@ -3,6 +3,7 @@ using log4net;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace FuNDs.Controllers
@@ -27,6 +28,7 @@ namespace FuNDs.Controllers
           //  string amount1 = amount + "";
             //getting the apiContext as earlier
             APIContext apiContext = Configuration.GetAPIContext();
+          
 
             try
             {
@@ -93,13 +95,14 @@ namespace FuNDs.Controllers
                     }
                 }
             }
-            catch (Exception ex)
+            
+           catch (Exception ex)
             {
-                // Logger.log("Error" + ex.Message);
-                return View("Failure");
+               // Logger.log("Error" + ex.Message);
+              // return View("Failure");
             }
-
-            return View("Success");
+            return View("success");
+          //  RedirectToAction ("Success");
         }
 
         private PayPal.Api.Payment payment;
@@ -280,18 +283,20 @@ namespace FuNDs.Controllers
                 apiContext.Config = GetConfig();
                 return apiContext;
             }
-        }
+
+          
 
 
-        public string getAmount(int id)
-        {
-            string id1 = id + "";
-            if (id1 == payment.id)
-            {
-
-                return "dsf";
             }
-            return "fjasdkkf";
+   
+
+    
+
+        public ActionResult Success() {
+
+
+            return View();
+
         }
 
     }

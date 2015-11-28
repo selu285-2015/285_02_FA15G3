@@ -111,6 +111,12 @@ namespace FuNDs.Models
         [Required]
         public string Message { get; set; }
     }
+
+    public class PaypalViewModel
+    {
+
+       public  string @returnUrl { get; set; }
+    }
 }
 
 
