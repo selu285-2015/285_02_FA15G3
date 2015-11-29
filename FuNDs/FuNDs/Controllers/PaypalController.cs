@@ -4,6 +4,9 @@ using PayPal.Api;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace FuNDs.Controllers
@@ -100,8 +103,13 @@ namespace FuNDs.Controllers
             {
                // Logger.log("Error" + ex.Message);
               // return View("Failure");
-            }
-            return View("success");
+            }   
+            var txToken = "8R796233JB671434K";
+            var authToken = "HlTvz4_zZRExCKYvBHDr8AsNgspBPJIJQ2D97trUfzTk7_qTeY2_6QGlK38";
+            var query = string.Format("cmd=_notify-synch&tx={0}&at={1}",
+                              txToken, authToken);
+
+            return RedirectToAction("Success"); 
           //  RedirectToAction ("Success");
         }
 

@@ -271,6 +271,42 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\fund1.jpg" />
+    <Content Include="Images\fund10.jpg" />
+    <Content Include="Images\fund11.jpg" />
+    <Content Include="Images\fund12.png" />
+    <Content Include="Images\fund13.jpg" />
+    <Content Include="Images\fund14.png" />
+    <Content Include="Images\fund15.jpg" />
+    <Content Include="Images\fund16.jpg" />
+    <Content Include="Images\fund17.jpg" />
+    <Content Include="Images\fund18.jpg" />
+    <Content Include="Images\fund19.jpg" />
+    <Content Include="Images\fund2.jpg" />
+    <Content Include="Images\fund20.jpg" />
+    <Content Include="Images\fund21.jpg" />
+    <Content Include="Images\fund22.jpg" />
+    <Content Include="Images\fund23.jpg" />
+    <Content Include="Images\fund24.jpg" />
+    <Content Include="Images\fund25.png" />
+    <Content Include="Images\fund26.jpg" />
+    <Content Include="Images\fund27.jpg" />
+    <Content Include="Images\fund28.jpg" />
+    <Content Include="Images\fund29.png" />
+    <Content Include="Images\fund3.jpg" />
+    <Content Include="Images\fund30.jpg" />
+    <Content Include="Images\fund31.jpg" />
+    <Content Include="Images\fund32.jpg" />
+    <Content Include="Images\fund33.jpg" />
+    <Content Include="Images\fund34.jpg" />
+    <Content Include="Images\fund35.png" />
+    <Content Include="Images\fund36.png" />
+    <Content Include="Images\fund4.jpg" />
+    <Content Include="Images\fund5.jpg" />
+    <Content Include="Images\fund6.png" />
+    <Content Include="Images\fund7.jpg" />
+    <Content Include="Images\fund8.jpg" />
+    <Content Include="Images\fund9.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -355,7 +391,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
