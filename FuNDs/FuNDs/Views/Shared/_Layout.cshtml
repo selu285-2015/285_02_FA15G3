@@ -48,18 +48,6 @@
 
                     </div>
 
-                                @*<form class="navbar-form navbar-right" role="search" action="/Campaigns/AllCampaigns" method="POST">
-
-            }
-             <p>
-                @using (Html.BeginForm("AllCampaigns", "Campaigns", FormMethod.Get))
-                {
-                <p>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-        </form>*@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.Partial("_LoginPartial")</li>
@@ -68,7 +56,7 @@
 
 
                         <li>@Html.ActionLink("How it works", "HowItWorks", "Home")</li>
-                        <li>@Html.ActionLink("Start a Campaign", "Create", "Campaigns")</li>
+                        
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
@@ -89,10 +77,10 @@
                 <h5>&copy; @DateTime.Now.Year - Team Origin </h5>
             </div>
             <div class=" col-sm-6 text-right">
-                <i class="fa fa-facebook fa-1.5x icon icon-fb"></i>
-                <i class="fa fa-google-plus fa-1.5x icon icon-gplus"></i>
-                <i class="fa fa-pinterest fa-1.5x icon icon-pinterest"></i>
-                <i class="fa fa-twitter fa-1.5x icon icon-tw"></i>
+                <i class="fa fa-facebook fa-2x icon icon-fb"></i>
+                <i class="fa fa-google-plus fa-2x icon icon-gplus"></i>
+                <i class="fa fa-pinterest fa-2x icon icon-pinterest"></i>
+                <i class="fa fa-twitter fa-2x icon icon-tw"></i>
             </div>
         </div>
     </nav>

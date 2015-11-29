@@ -86,35 +86,13 @@ namespace FuNDs.Controllers
             //  return View("SearchResults", projects.ToList());
             else
             {
-
-                //foreach (var campaign in user.Campaigns)
-                //{
-                //    campaignlist.Add(campaign);
-                //}
-
-                //return View(campaignlist.ToList());
-
+                
                 List<Campaign> allCampaigns = new List<Campaign>();
 
                 allCampaigns = db.Campaigns.ToList();
                 return View(allCampaigns);
             }
         }
-
-        //public ActionResult AllCampaigns(string searchString) {
-
-
-      
-        //    var campaigns = from m in db.Campaigns
-        //                 select m;
-
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        campaigns = campaigns.Where(s => s.CampaignTitle.Contains(searchString));
-        //    }
-
-        //    return View(campaigns);
-        //}
             
         
         public ActionResult Details(int? id)

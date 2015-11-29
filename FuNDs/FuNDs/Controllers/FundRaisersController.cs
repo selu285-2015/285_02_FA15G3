@@ -67,7 +67,7 @@ namespace FuNDs.Controllers
                 db.SaveChanges();
                 //  
                 this.confirmationEmailSend(FundRaisers.Email, FundRaisers.verificationToken);
-                return RedirectToAction("checkEmail");
+                return View ("CheckEmail");
 
                 //   HttpContext.Session.Add("fundRaiser", FundRaisers);
 
@@ -109,27 +109,36 @@ namespace FuNDs.Controllers
             {
 
                 FundRaisers doesUserExist = db.FundRaisers.FirstOrDefault(s => s.Email.Equals(userTryingToLogin.Email));
-
-                if (!doesUserExist.verified)
+                try
                 {
-                    ModelState.AddModelError("doesUserExist", "Email Not verified. Please check your email confirmation");
-                    return View("SignInFailure");
-                }
+                    if (!doesUserExist.verified)
+                    {
+                        ModelState.AddModelError("doesUserExist", "Email Not verified. Please check your email confirmation");
+                        return View("SignInFailure");
+                    }
 
-                bool a = Crypto.VerifyHashedPassword(doesUserExist.Password, userTryingToLogin.Password);
-                if (a == true)
-                {
+                    bool a = Crypto.VerifyHashedPassword(doesUserExist.Password, userTryingToLogin.Password);
+                    if (a == true)
+                    {
 
-                    // creating authetication ticket
-                    FormsAuthentication.SetAuthCookie(userTryingToLogin.Email, false);
-                    Session["userId"] = doesUserExist.FundRaisersId;
-                    return RedirectToAction("Index", "Home");
+                        // creating authetication ticket
+                        FormsAuthentication.SetAuthCookie(userTryingToLogin.Email, false);
+                        Session["userId"] = doesUserExist.FundRaisersId;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        @ViewBag.Message = "Error.Ivalid login.";
+                        return RedirectToAction("SignInFailure", "FundRaisers");
+                    }
+
                 }
-                else
+                catch
                 {
                     @ViewBag.Message = "Error.Ivalid login.";
                     return RedirectToAction("SignInFailure", "FundRaisers");
-                }
+    
+            }
             }
             ModelState.AddModelError("UserDoesNotExist", "Username or Password is Incorrect! Please try Again!!");
             return View(userTryingToLogin);

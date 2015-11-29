@@ -425,15 +425,12 @@ C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.Web
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\System.Web.WebPages.Razor.xml
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Hammock.ClientProfile.dll
-C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Newtonsoft.Json.dll
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.dll
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Hammock.ClientProfile.pdb
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Newtonsoft.Json.xml
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.pdb
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
-C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp1.resources
-C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp2.resources
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\roslyn\csc.exe
@@ -519,3 +516,8 @@ C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.dll
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.pdb
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csprojResolveAssemblyReference.cache
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\log4net.dll
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\PayPal.dll
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\PayPalCoreSDK.dll
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\log4net.xml
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\PayPal.xml
