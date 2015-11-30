@@ -13,7 +13,7 @@ namespace FuNDs.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201511250707011_temp"; }
+            get { return "201511300203131_temp"; }
         }
         
         string IMigrationMetadata.Source

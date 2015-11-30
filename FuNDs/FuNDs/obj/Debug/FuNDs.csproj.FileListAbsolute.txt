@@ -429,8 +429,6 @@ C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.dll
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Hammock.ClientProfile.pdb
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\Newtonsoft.Json.xml
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\TweetSharp.pdb
-C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
-C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
 C:\Users\ayush\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache
 C:\Users\Jiban\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\roslyn\csc.exe
@@ -521,3 +519,5 @@ C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\PayPal.dll
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\PayPalCoreSDK.dll
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\log4net.xml
 C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\bin\PayPal.xml
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.Migrations.temp.resources
+C:\Users\Aabishkar\Documents\GitHub\285_02_FA15G3\FuNDs\FuNDs\obj\Debug\FuNDs.csproj.GenerateResource.Cache

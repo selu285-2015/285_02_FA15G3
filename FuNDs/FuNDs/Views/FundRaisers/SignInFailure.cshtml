@@ -3,7 +3,20 @@
     ViewBag.Title = "SignInFailure";
 }
 
+<level class="container text-center" style="margin-left:5px;">
+    <div class="bs-callout bs-callout-warning">
+        <h4>Sign In failed. Try Again!</h4>
+       
+    </div>
 
-<h1 class="Error" style="color:white; margin-left:15px;"> Error.Invalid Login.</h1>
-<a href="/FundRaisers/SignIn" class="re-login" style=" color:white;  margin-left:15px;">Try Logging In Again</a>
-@*@Html.ActionLink("Try Logging In Again", "SignIn")*@
+    
+    <div class="form-group">
+        <a href="~/FundRaisers/SignIn">
+            <div class="col-md-6">
+                <input type="button" value="Sign In" class="btn btn-default" style="background-color:#28cb75; color:white;" />
+     
+
+        </div>
+            </a>
+    </div>
+    </p>

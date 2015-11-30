@@ -22,12 +22,12 @@ namespace FuNDs.Controllers
             return View();
         }
 
-        public ActionResult PaymentWithPaypal(string donateAmount)
+        public ActionResult PaymentWithPaypal(string DonationAmount)
         {
 
           //  public ActionResult PaymentWithPaypal(int id) { 
      // Donor donor = db.Donors.FirstOrDefault(s => s.DonorId ==);
-          //  double amount = donor.donateAmount;
+          //  double amount = donor.DonationAmount;
           //  string amount1 = amount + "";
             //getting the apiContext as earlier
             APIContext apiContext = Configuration.GetAPIContext();
@@ -56,7 +56,7 @@ namespace FuNDs.Controllers
                     //CreatePayment function gives us the payment approval url
                     //on which payer is redirected for paypal account payment
 
-                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid, donateAmount);
+                    var createdPayment = this.CreatePayment(apiContext, baseURI + "guid=" + guid, DonationAmount);
 
                     //get links returned from paypal in response to Create function call
 
@@ -124,7 +124,7 @@ namespace FuNDs.Controllers
         // this is new
 
 
-        private Payment CreatePayment(APIContext apiContext, string redirectUrl, string donateAmount)
+        private Payment CreatePayment(APIContext apiContext, string redirectUrl, string DonationAmount)
         {
 
             //similar to credit card create itemlist and add item objects to it
@@ -134,7 +134,7 @@ namespace FuNDs.Controllers
             {
                 name = "Item Name",
                 currency = "USD",
-                price = donateAmount,
+                price = DonationAmount,
                 quantity = "1",
                 sku = "sku"
             });
@@ -153,14 +153,14 @@ namespace FuNDs.Controllers
             {
                 tax = "0",
                 shipping = "0",
-                subtotal = donateAmount
+                subtotal = DonationAmount
             };
 
             // similar as we did for credit card, do here and create amount object
             var amount = new Amount()
             {
                 currency = "USD",
-                total = donateAmount, // Total must be equal to sum of shipping, tax and subtotal.
+                total = DonationAmount, // Total must be equal to sum of shipping, tax and subtotal.
                 details = details
             };
 

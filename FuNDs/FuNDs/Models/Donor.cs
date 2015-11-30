@@ -15,7 +15,7 @@ namespace FuNDs.Models
 
         //    public string? donorLastName { get; set; }
 
-        public double donateAmount { get; set; }
+        public double DonationAmount { get; set; }
 
         public string donateDate { get; set; }
 

@@ -221,9 +221,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511250707011_temp.cs" />
-    <Compile Include="Migrations\201511250707011_temp.Designer.cs">
-      <DependentUpon>201511250707011_temp.cs</DependentUpon>
+    <Compile Include="Migrations\201511300203131_temp.cs" />
+    <Compile Include="Migrations\201511300203131_temp.Designer.cs">
+      <DependentUpon>201511300203131_temp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -388,7 +388,9 @@
     <Content Include="Views\Paypal\Failure.cshtml" />
     <Content Include="Views\Donors\Pay.cshtml" />
     <Content Include="Views\layout\layout.cshtml" />
-    <Content Include="Views\FundRaisers\View.cshtml" />
+    <Content Include="Views\FundRaisers\CheckEmail.cshtml" />
+    <Content Include="Views\FundRaisers\PasswordRecovery.cshtml" />
+    <Content Include="Views\Home\ContactSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -399,8 +401,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511250707011_temp.resx">
-      <DependentUpon>201511250707011_temp.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511300203131_temp.resx">
+      <DependentUpon>201511300203131_temp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

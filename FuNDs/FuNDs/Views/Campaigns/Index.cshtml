@@ -5,10 +5,12 @@
 }
 
 <section id="all-campaigns" class="container">
+    <level class="container text-left" style="margin-left:5px;">
+        <div class="bs-callout bs-callout-warning">
+            <h5>@Html.ActionLink("[Create New Campaign]", "Create")</h5>
+        </div>
 
-    <h3>Campaigns</h3>
-    @Html.ActionLink("[Create New]", "Create")
-    <hr />
+    </level>
 
     <div class="container">
 
@@ -21,33 +23,23 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <h4 class="title">
-                                @Html.DisplayFor(modelItem => item.CampaignTitle)
+                                @Html.ActionLink(item.CampaignTitle, "Pay", "Donors", new { id = item.CampaignId }, null)
+
                             </h4>
-                        </div>
-                        <div class="col-xs-6">
+                        </div><div class="col-xs-6">
                             <h4 class="amount text-right">
-                                <span class="raised"></span><span class="target">/@Html.DisplayFor(modelItem => item.CampaignAmount)</span>
+                                <span class="raised">$0</span><span class="target">/@Html.DisplayFor(modelItem => item.CampaignAmount)</span>
                             </h4>
                         </div>
                     </div>
 
 
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                    </div>
                     <p>
                         @Html.DisplayFor(modelItem => item.CampaignDescription)
                     </p>
                     <hr />
-                    <div>
-                    <p>
-                        By User on @Html.DisplayFor(modelItem => item.StartingDate)
-                        <p>
-                   <p>Ending in:</p>
-                        <p> @Html.DisplayFor(modelItem => item.EndingDate)</p>
-                        </div>
-
-
+                 
+                   
                 </div>
 
             }
@@ -55,4 +47,3 @@
 
     </div>
 </section>
-

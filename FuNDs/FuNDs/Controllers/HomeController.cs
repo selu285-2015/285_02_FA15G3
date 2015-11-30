@@ -49,17 +49,16 @@ namespace FuNDs.Controllers
                 var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
                 MailMessage mail = new MailMessage();
                 mail.To.Add("pankaj.sherchan@selu.edu");
+                mail.To.Add("aabishkar.timalsina@selu.edu");
+                mail.To.Add("aayush.dahal@selu.edu");
+                mail.To.Add("jeetendra.khadka@selu.edu");
                 mail.From = new MailAddress("Convergent.origin@gmail.com");
-                mail.Subject = "Change Password";
+                mail.Subject = "Comments and Thoughts";
 
 
-
-                // mail.Body = "Hello there!" + "<br/>" + "Please click on the link below to reset your password... " + "<br/>" + callbackUrl + "<br/>" + "<br/>" + "<br/>" + "<br/>" + "<br/>" + "If this is not you, please send us an email at convergent.origin@gmail.com " + "<br/>" + "<br/>" + "<br/>" + "Sincerely," + "<br/>" + "Team Origin";
+                
                 mail.IsBodyHtml = true;
-                //var message = new MailMessage();
-                //message.To.Add(new MailAddress("pankaj.sherchan@selu.edu"));  // replace with valid value 
-                //message.From = new MailAddress("Convergent.origin@gmail.com");  // replace with valid value
-                //message.Subject = "Your email subject";
+               
                 mail.Body = string.Format(body, model.FromName, model.FromEmail, model.Message);
                 // message.IsBodyHtml = true;
 
@@ -74,20 +73,7 @@ namespace FuNDs.Controllers
                 smtp.Send(mail);
 
 
-                //using (var smtp = new SmtpClient())
-                //{
-                //    var credential = new NetworkCredential
-                //    {
-                //    UserName = "Convergent.origin@gmail.com",  // replace with valid value
-                //        Password = "fall2015cmps285"  // replace with valid value
-                //    };
-                //    smtp.Credentials = credential;
-                //    smtp.Host = "smtp-mail.outlook.com";
-                //    smtp.Port = 587;
-                //    smtp.EnableSsl = true;
-                //    await smtp.SendMailAsync(mail);
-                //    return RedirectToAction("Sent");
-                return View("Index");
+                return View("ContactSuccess");
 
 
             }

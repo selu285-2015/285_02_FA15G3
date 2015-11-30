@@ -28,7 +28,7 @@ namespace FuNDs.Migrations
                 c => new
                     {
                         DonorId = c.Int(nullable: false, identity: true),
-                        donateAmount = c.Double(nullable: false),
+                        DonationAmount = c.Double(nullable: false),
                         donateDate = c.String(),
                         Campaign_CampaignId = c.Int(),
                     })

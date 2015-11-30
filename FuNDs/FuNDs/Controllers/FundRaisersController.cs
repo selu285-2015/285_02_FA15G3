@@ -129,14 +129,14 @@ namespace FuNDs.Controllers
                     else
                     {
                         @ViewBag.Message = "Error.Ivalid login.";
-                        return RedirectToAction("SignInFailure", "FundRaisers");
+                        return View("SignInFailure");
                     }
 
                 }
                 catch
                 {
                     @ViewBag.Message = "Error.Ivalid login.";
-                    return RedirectToAction("SignInFailure", "FundRaisers");
+                    return View("SignInFailure");
     
             }
             }
@@ -567,7 +567,7 @@ namespace FuNDs.Controllers
             MailMessage mail = new MailMessage();
             mail.To.Add(model.Email);
             mail.From = new MailAddress("Convergent.origin@gmail.com");
-            mail.Subject = "Change Password";
+            mail.Subject = "Reset Password";
 
 
 
@@ -585,7 +585,7 @@ namespace FuNDs.Controllers
 
 
 
-            return RedirectToAction("Index", "Home");
+            return View("PasswordRecovery");
         }
 
 

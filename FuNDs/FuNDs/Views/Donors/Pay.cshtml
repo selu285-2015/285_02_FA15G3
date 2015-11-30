@@ -1,66 +1,77 @@
 ﻿@model FuNDs.Models.Donor
 
-<h2>Pay</h2>
 
-<div class="text-center">
-    <section id="sign-up" class="container">
+    <div class="text-center">
+        <section id="sign-up" class="container">
 
-        @using (Html.BeginForm("PaymentWithPaypal", "Paypal", FormMethod.Get))
-{
-            
+            @using (Html.BeginForm("PaymentWithPaypal", "Paypal", FormMethod.Get))
+            {
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.donateAmount, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9" >
-                @Html.EditorFor(model => model.donateAmount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.donateAmount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.donateDate, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9" >
-                @Html.EditorFor(model => model.donateDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.donateDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <level class="container text-center" style="margin-left:5px; color:forestgreen;">                    
+                        <h4 ><b>Donate</b></h4>                    
+                    </level>
+                   
 
-        <div class="form-group">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DonationAmount, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.DonationAmount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DonationAmount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label class="col-md-3 control-label">Date: </label>
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.donateDate, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.donateDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.donateDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.donateDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.donateDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                    <div class="form-group">
+                        <div class="form-group">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+
+                        </div>
+                    </div>
+
+                    }
+
+</section>
+    </div>
+
+
+
+    @*<div class="text-center">
+        <section id="sign-up" class="container">
+            @using (Html.BeginForm("PaymentWithPaypal", "Paypal", FormMethod.Get))
+            {
             <div class="form-group">
-                <input type = "image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-           
-            </div>
-        </div>
-        
-}
-
-    </section>
-</div>
-
-
-
-@*<div class="text-center">
-    <section id="sign-up" class="container">
-        @using (Html.BeginForm("PaymentWithPaypal", "Paypal", FormMethod.Get))
-        {
-        <div class="form-group">
-            @Html.LabelFor(model => model.donateAmount, htmlAttributes: new { @class = "control-label col-md-3" })
-            <div class="col-md-9" id="payform">
-                @Html.EditorFor(model => model.donateAmount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.donateAmount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.donateDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                @Html.LabelFor(model => model.donateAmount, htmlAttributes: new { @class = "control-label col-md-3" })
                 <div class="col-md-9" id="payform">
-                    @Html.EditorFor(model => model.donateDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.donateDate, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.donateAmount, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.donateAmount, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <p>
-                <add type="hidden" name="returnUrl" value="http://localhost:19377/Thankyou.html" />
                 <div class="form-group">
-                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                    @*<input type="submit" class="btn btn-default" />*@
-           
+                    @Html.LabelFor(model => model.donateDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9" id="payform">
+                        @Html.EditorFor(model => model.donateDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.donateDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <p>
+                    <add type="hidden" name="returnUrl" value="http://localhost:19377/Thankyou.html" />
+                    <div class="form-group">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        @*<input type="submit" class="btn btn-default" />*@
